@@ -145,26 +145,26 @@
 
   <main class="max-w-xl mx-auto px-4 pt-4 space-y-4">
 
-    <!-- Top Overview Ticket Banner (Always Visible) -->
-    <section aria-label="สรุปหน้าตักปัจจุบัน" class="bg-ink-900 dark:bg-slate-900 text-white rounded-2xl p-4 shadow-sm border border-slate-800">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+    <!-- Top Overview Ticket Banner + One-Tap Randomizer (Always Visible) -->
+    <section aria-label="สุ่มเลขและสรุปหน้าตัก" class="bg-ink-900 dark:bg-slate-900 text-white rounded-2xl p-4 shadow-md border border-slate-800 space-y-3">
+      <div class="flex items-center justify-between gap-2">
         <div>
-          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">เลขที่ใช้คำนวณตอนนี้</span>
+          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">ชุดตัวเลขพร้อมแทง (งบ <span id="bannerTotalCost" class="text-white font-bold tnum">1,000</span>฿)</span>
           <div class="flex items-baseline gap-2 mt-0.5">
-            <span id="bannerDigits" class="text-xl font-extrabold text-amber-400 tnum">เด่น 4 - 7</span>
-            <span id="bannerSubDigits" class="text-xs font-medium text-slate-300 tnum">/ รอง 2 - 5</span>
+            <span id="bannerDigits" class="text-2xl font-extrabold text-amber-400 tnum">เด่น 4 - 7</span>
+            <span id="bannerSubDigits" class="text-sm font-semibold text-slate-300 tnum">/ รอง 2 - 5</span>
           </div>
         </div>
-        <div class="text-right">
-          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">เงินลงทุนรวม</span>
-          <div class="flex items-baseline justify-end gap-1 mt-0.5">
-            <span id="bannerTotalCost" class="text-2xl font-extrabold text-white tnum">1,000</span>
-            <span class="text-xs text-slate-400">บาท</span>
-          </div>
-        </div>
+
+        <button id="heroRandomBtn" type="button" class="cursor-pointer min-h-[46px] px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-ink-950 font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-md active:scale-95 transition-all shrink-0">
+          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span>กดสุ่มชุดเลขใหม่</span>
+        </button>
       </div>
 
-      <div class="grid grid-cols-3 gap-2 pt-3 text-center tnum">
+      <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800 text-center tnum">
         <div class="bg-white/5 rounded-xl py-2 px-1.5">
           <span class="block text-[11px] text-slate-400">ถูกตัวกัน 1 ฝั่ง</span>
           <span id="bannerBaseReturn" class="text-xs sm:text-sm font-bold text-slate-100">ได้คืน 990฿</span>
@@ -190,25 +190,25 @@
         <div class="flex items-start justify-between gap-2">
           <div>
             <span class="inline-block px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 mb-1">
-              อ่านจบใน 1 นาที · ทำตามได้เลย
+              กดสุ่มด้านบน · แล้วแทงตาม 3 กองนี้ได้เลย
             </span>
             <h2 class="text-base font-extrabold text-ink-900 dark:text-white">
-              สรุปสั้นๆ: งวดนี้ต้องซื้อเลขอะไร และซื้อยังไง?
+              ใบโพยพร้อมแทง: กดคัดลอกทีละกองไปวางซื้อได้เลย
             </h2>
           </div>
           <button type="button" id="jumpToPickBtn" class="cursor-pointer shrink-0 min-h-[38px] px-3 rounded-lg text-xs font-bold bg-paper-100 hover:bg-paper-200 dark:bg-slate-800 text-ink-900 dark:text-slate-200 border border-paper-300 dark:border-slate-700">
-            เปลี่ยนเลขเด่น
+            เลือกเลขเอง
           </button>
         </div>
 
         <p class="text-xs text-ink-600 dark:text-slate-300 leading-relaxed">
-          สูตรนี้เราจะดักซื้อเลขท้าย 2 ตัวทั้งหมด <strong class="text-ink-900 dark:text-white">36 ตัว</strong> โดยทุกตัวให้ซื้อควบทั้ง <strong class="text-ink-900 dark:text-white">"2 ตัวบน"</strong> (ท้ายรางวัลที่ 1) และ <strong class="text-ink-900 dark:text-white">"2 ตัวล่าง"</strong> (รางวัลเลขท้าย 2 ตัว) แต่เราจะ <strong class="text-brass-600 dark:text-amber-400">วางเงินไม่เท่ากัน</strong> โดยแบ่งเลข 36 ตัวออกเป็น <strong class="text-ink-900 dark:text-white">3 กอง (เลขไม่ซ้ำกันเลย)</strong> ตามด้านล่างนี้ครับ:
+          ไม่ต้องคิดคำนวณเอง! กดปุ่ม <strong class="text-amber-600 dark:text-amber-400">"กดสุ่มชุดเลขใหม่"</strong> ด้านบน แล้วคัดลอกเลขทั้ง <strong class="text-ink-900 dark:text-white">3 กอง (รวม 36 ตัว ไม่ซ้ำกันเลย)</strong> ไปซื้อทั้ง <strong class="text-ink-900 dark:text-white">2 ตัวบน</strong> และ <strong class="text-ink-900 dark:text-white">2 ตัวล่าง</strong> ตามราคาที่ระบุในแต่ละกอง:
         </p>
 
         <!-- Mode Switcher: Non-overlapping 3 Groups vs Web Shortcut -->
         <div class="grid grid-cols-2 p-1 rounded-xl bg-paper-100 dark:bg-slate-800 border border-paper-200 dark:border-slate-700">
           <button type="button" id="modeDirectBtn" class="cursor-pointer min-h-[38px] rounded-lg text-xs font-extrabold bg-ink-900 text-white dark:bg-amber-400 dark:text-ink-950 shadow-sm transition-all">
-            วิธีที่ 1: แยก 3 กอง (ไม่ซ้ำเลข)
+            วิธีที่ 1: แยก 3 กอง (แทงตามง่ายสุด)
           </button>
           <button type="button" id="modeShortcutBtn" class="cursor-pointer min-h-[38px] rounded-lg text-xs font-bold text-ink-600 dark:text-slate-300 transition-all">
             วิธีที่ 2: กดปุ่ม 19 ประตูในเว็บ
@@ -1258,12 +1258,17 @@
       copyToClipboard(text, 'คัดลอกใบโพยทั้ง 3 กองเรียบร้อยแล้ว!');
     });
 
-    // Smart Pick (Balanced parity + low/high + golden sum 7..11 subDigits)
-    document.getElementById('smartPickBtn').addEventListener('click', () => {
+    // Smart Pick (Balanced parity + low/high + golden sum 7..11 subDigits, guaranteed new set on every click)
+    function triggerSmartRandom() {
       const low = [0, 1, 2, 3, 4];
-      const m1 = low[Math.floor(Math.random() * low.length)];
-      const high = [5, 6, 7, 8, 9].filter(d => (d % 2) !== (m1 % 2));
-      const m2 = high[Math.floor(Math.random() * high.length)];
+      const prevMainKey = getSortedMain().join('-');
+      let m1, m2;
+      for (let attempt = 0; attempt < 10; attempt++) {
+        m1 = low[Math.floor(Math.random() * low.length)];
+        const high = [5, 6, 7, 8, 9].filter(d => (d % 2) !== (m1 % 2));
+        m2 = high[Math.floor(Math.random() * high.length)];
+        if (`${m1}-${m2}` !== prevMainKey) break;
+      }
 
       const remLow = low.filter(d => d !== m1 && hasGoodSum(d, [m1, m2]));
       const remHigh = [5, 6, 7, 8, 9].filter(d => d !== m2 && hasGoodSum(d, [m1, m2]));
@@ -1279,8 +1284,11 @@
       state.mainDigits = [m1, m2];
       state.subDigits = [s1, s2];
       renderAll();
-      showToast(`สุ่มชุดสมดุล: เด่น ${m1}-${m2} / รอง ${s1}-${s2}`);
-    });
+      showToast(`สุ่มชุดใหม่พร้อมแทง: เด่น ${m1}-${m2} / รอง ${s1}-${s2}`);
+    }
+
+    document.getElementById('smartPickBtn').addEventListener('click', triggerSmartRandom);
+    document.getElementById('heroRandomBtn').addEventListener('click', triggerSmartRandom);
 
     // Steppers
     document.querySelectorAll('.step-btn').forEach(btn => {
