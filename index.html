@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0F172A" />
-  <title>PRAWIT SLIP — สรุปวิธีแทงหวย 2 ตัว บน–ล่าง งบ 1,000 บาท (ฉบับเข้าใจง่าย)</title>
+  <meta name="theme-color" content="#0B0F17" />
+  <title>ระบบสุ่มชุดหวย AI งบ 1,000 บาท — สำหรับมือใหม่ กดสุ่มแล้วแทงตามได้ทันที</title>
   <!-- Google Fonts: Sarabun -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,24 +26,11 @@
               300: '#D5CFC0',
             },
             ink: {
-              950: '#0B0F17',
+              950: '#090D14',
               900: '#111827',
-              800: '#1F2937',
-              600: '#4B5563',
-              500: '#6B7280',
-            },
-            brass: {
-              50: '#FEFCE8',
-              100: '#FEF3C7',
-              500: '#D97706',
-              600: '#B45309',
-              700: '#92400E',
-            },
-            crimson: {
-              50: '#FFF1F2',
-              100: '#FFE4E6',
-              600: '#E11D48',
-              700: '#BE123C',
+              800: '#1E293B',
+              600: '#475569',
+              500: '#64748B',
             }
           }
         }
@@ -66,572 +53,212 @@
         scroll-behavior: auto !important;
       }
     }
-    .receipt-card {
-      background-image: radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.04) 1px, transparent 0);
-      background-size: 16px 16px;
-    }
-    .dark .receipt-card {
-      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
-      background-size: 16px 16px;
-    }
     .safe-bottom {
-      padding-bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(6.25rem + env(safe-area-inset-bottom, 0px));
     }
     .safe-bar {
       padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
     }
-    .grid-10 {
-      display: grid;
-      grid-template-columns: repeat(10, minmax(0, 1fr));
-    }
   </style>
 </head>
-<body class="bg-paper-100 text-ink-900 dark:bg-ink-950 dark:text-slate-100 min-h-screen safe-bottom selection:bg-brass-500 selection:text-white">
+<body class="bg-paper-100 text-ink-900 dark:bg-ink-950 dark:text-slate-100 min-h-screen safe-bottom selection:bg-amber-500 selection:text-ink-950">
 
-  <!-- Top Header -->
+  <!-- Minimal Top Header -->
   <header class="sticky top-0 z-30 bg-paper-50/95 dark:bg-ink-900/95 backdrop-blur-md border-b border-paper-200 dark:border-slate-800">
-    <div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
+    <div class="max-w-lg mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-lg bg-ink-900 dark:bg-amber-500 text-white dark:text-ink-950 flex items-center justify-center font-extrabold text-sm tracking-tighter tnum">
-          36
+        <div class="w-8 h-8 rounded-lg bg-amber-500 text-ink-950 flex items-center justify-center font-extrabold text-sm tnum">
+          AI
         </div>
         <div>
           <h1 class="text-base font-extrabold tracking-tight text-ink-900 dark:text-white leading-none">
-            สมุดโพย 36 เลข <span class="text-brass-600 dark:text-amber-400 font-bold">บน–ล่าง</span>
+            สุ่มโพยหวย <span class="text-amber-600 dark:text-amber-400">งบ 1,000 บาท</span>
           </h1>
-          <p class="text-[11px] text-ink-600 dark:text-slate-400 mt-0.5 tnum">
-            คู่มือแทงหวยฉบับจับมือทำ · โอกาสถูกรวม 59.04%
+          <p class="text-[11px] text-ink-600 dark:text-slate-400 mt-0.5">
+            คนแทงหวยไม่เป็นก็ใช้ได้ · กดสุ่มแล้วก๊อปปี้ส่งได้เลย
           </p>
         </div>
       </div>
 
-      <div class="flex items-center gap-1.5">
-        <button id="resetDefaultBtn" type="button" class="cursor-pointer min-h-[40px] px-2.5 rounded-lg text-xs font-semibold text-ink-600 dark:text-slate-300 hover:bg-paper-200/70 dark:hover:bg-slate-800 active:opacity-75 transition-colors flex items-center gap-1" title="คืนค่าเริ่มต้น 1,000 บาท">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-          </svg>
-          <span>ค่าเริ่มต้น</span>
-        </button>
-
-        <button id="themeToggleBtn" type="button" aria-label="สลับโหมดหน้าจอสว่างและมืด" class="cursor-pointer w-10 h-10 rounded-lg flex items-center justify-center text-ink-800 dark:text-slate-200 hover:bg-paper-200/70 dark:hover:bg-slate-800 active:opacity-75 transition-colors">
-          <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <svg class="w-5 h-5 block dark:hidden text-ink-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- 4 Clear Mobile Tabs -->
-    <div class="max-w-xl mx-auto px-4 pb-2.5">
-      <nav aria-label="เมนูหลัก" class="grid grid-cols-4 p-1 rounded-xl bg-paper-200/80 dark:bg-slate-800/90 border border-paper-300/60 dark:border-slate-700/70 gap-1">
-        <button type="button" data-tab="guide" class="tab-btn cursor-pointer min-h-[38px] rounded-lg text-xs font-extrabold transition-all bg-white dark:bg-ink-900 text-ink-900 dark:text-white shadow-sm">
-          สรุปวิธีแทง
-        </button>
-        <button type="button" data-tab="pick" class="tab-btn cursor-pointer min-h-[38px] rounded-lg text-xs font-bold transition-all text-ink-600 dark:text-slate-400 hover:text-ink-900 dark:hover:text-white">
-          เปลี่ยนเลข
-        </button>
-        <button type="button" data-tab="money" class="tab-btn cursor-pointer min-h-[38px] rounded-lg text-xs font-bold transition-all text-ink-600 dark:text-slate-400 hover:text-ink-900 dark:hover:text-white">
-          ปรับงบ/กำไร
-        </button>
-        <button type="button" data-tab="check" class="tab-btn cursor-pointer min-h-[38px] rounded-lg text-xs font-bold transition-all text-ink-600 dark:text-slate-400 hover:text-ink-900 dark:hover:text-white">
-          ตรวจหวย
-        </button>
-      </nav>
+      <button id="themeToggleBtn" type="button" aria-label="สลับโหมดสีหน้าจอ" class="cursor-pointer w-10 h-10 rounded-lg flex items-center justify-center text-ink-800 dark:text-slate-200 hover:bg-paper-200/70 dark:hover:bg-slate-800 active:opacity-75 transition-colors">
+        <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="w-5 h-5 block dark:hidden text-ink-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main class="max-w-xl mx-auto px-4 pt-4 space-y-4">
+  <main class="max-w-lg mx-auto px-4 pt-4 space-y-4">
 
-    <!-- Top Overview Ticket Banner + One-Tap Randomizer (Always Visible) -->
-    <section aria-label="สุ่มเลขและสรุปหน้าตัก" class="bg-ink-900 dark:bg-slate-900 text-white rounded-2xl p-4 shadow-md border border-slate-800 space-y-3">
+    <!-- ================================================================= -->
+    <!-- HERO CARD: ปุ่มสุ่มขนาดใหญ่ + เปอร์เซ็นต์ถูกสูงสุดที่ AI คำนวณให้     -->
+    <!-- ================================================================= -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-paper-200 dark:border-slate-800 shadow-lg space-y-4">
       <div class="flex items-center justify-between gap-2">
-        <div>
-          <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">ชุดตัวเลขพร้อมแทง (งบ <span id="bannerTotalCost" class="text-white font-bold tnum">1,000</span>฿)</span>
-          <div class="flex items-baseline gap-2 mt-0.5">
-            <span id="bannerDigits" class="text-2xl font-extrabold text-amber-400 tnum">เด่น 4 - 7</span>
-            <span id="bannerSubDigits" class="text-sm font-semibold text-slate-300 tnum">/ รอง 2 - 5</span>
-          </div>
-        </div>
-
-        <button id="heroRandomBtn" type="button" class="cursor-pointer min-h-[46px] px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-ink-950 font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-md active:scale-95 transition-all shrink-0">
-          <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-          </svg>
-          <span>กดสุ่มชุดเลขใหม่</span>
-        </button>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-extrabold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 tnum">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span id="winRateBadge">โอกาสถูกรางวัล 61.56% (สูงสุดในงบ 1,000฿)</span>
+        </span>
+        <span id="costBadge" class="text-xs font-extrabold text-ink-600 dark:text-slate-400 tnum">
+          ใช้เงิน 988 บาท
+        </span>
       </div>
 
-      <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800 text-center tnum">
-        <div class="bg-white/5 rounded-xl py-2 px-1.5">
-          <span class="block text-[11px] text-slate-400">ถูกตัวกัน 1 ฝั่ง</span>
-          <span id="bannerBaseReturn" class="text-xs sm:text-sm font-bold text-slate-100">ได้คืน 990฿</span>
+      <!-- GIANT RANDOMIZE BUTTON -->
+      <button id="bigRandomBtn" type="button" class="cursor-pointer w-full min-h-[60px] py-3.5 px-5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-ink-950 font-extrabold text-base sm:text-lg flex items-center justify-center gap-2.5 shadow-md active:scale-[0.98] transition-all">
+        <svg id="diceIcon" class="w-6 h-6 shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        <span>กดสุ่มชุดเลขใหม่ (คัดตัวโอกาสออกสูงสุด)</span>
+      </button>
+
+      <!-- Formula Style Switcher (2 Simple Modes) -->
+      <div class="space-y-1.5">
+        <label class="block text-[11px] font-bold text-ink-500 dark:text-slate-400 text-center">
+          เลือกรูปแบบการแทงที่คุณต้องการ:
+        </label>
+        <div class="grid grid-cols-2 p-1 rounded-xl bg-paper-100 dark:bg-slate-950 border border-paper-200 dark:border-slate-800 gap-1">
+          <button type="button" id="styleSimpleBtn" class="cursor-pointer min-h-[42px] px-2 rounded-lg text-xs font-extrabold bg-white dark:bg-slate-800 text-ink-900 dark:text-amber-400 shadow-sm transition-all">
+            โหมดง่ายสุด · ราคาเดียว<br><span class="text-[10px] font-normal opacity-80">ดัก 38 เลข (โอกาสถูก 61.56%)</span>
+          </button>
+          <button type="button" id="style3GroupBtn" class="cursor-pointer min-h-[42px] px-2 rounded-lg text-xs font-bold text-ink-600 dark:text-slate-400 transition-all">
+            โหมดเน้นกำไรใหญ่ · 3 กอง<br><span class="text-[10px] font-normal opacity-80">ดัก 36 เลข (กำไรสูงสุด +3,140฿)</span>
+          </button>
         </div>
-        <div class="bg-amber-500/15 border border-amber-500/30 rounded-xl py-2 px-1.5">
-          <span class="block text-[11px] text-amber-300">ถูกตัวเน้น 1 ฝั่ง</span>
-          <span id="bannerCoreProfit" class="text-xs sm:text-sm font-extrabold text-amber-400">กำไร +890฿</span>
+      </div>
+
+      <!-- 3 Quick Profit Pills -->
+      <div id="heroStatsGrid" class="grid grid-cols-3 gap-2 pt-2 border-t border-paper-200 dark:border-slate-800 text-center tnum">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- STEP-BY-STEP FOR PEOPLE WHO HAVE NEVER BOUGHT LOTTERY BEFORE      -->
+    <!-- ================================================================= -->
+    <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-3">
+      <h2 class="text-sm font-extrabold text-ink-900 dark:text-white flex items-center gap-2">
+        <span class="w-5 h-5 rounded-full bg-emerald-500 text-ink-950 text-xs font-extrabold flex items-center justify-center">?</span>
+        <span>แทงหวยไม่เป็น ต้องทำยังไง? (ทำตาม 3 ข้อนี้จบเลย)</span>
+      </h2>
+
+      <div class="grid grid-cols-1 gap-2 text-xs">
+        <div class="p-2.5 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700/70 flex items-center gap-2.5">
+          <span class="w-6 h-6 rounded-lg bg-amber-500 text-ink-950 font-extrabold flex items-center justify-center shrink-0 tnum">1</span>
+          <span class="text-ink-800 dark:text-slate-200">กดปุ่มสีเหลือง <strong>"กดสุ่มชุดเลขใหม่"</strong> ด้านบนจนได้ชุดที่ถูกใจ</span>
         </div>
-        <div class="bg-emerald-500/15 border border-emerald-500/30 rounded-xl py-2 px-1.5">
-          <span class="block text-[11px] text-emerald-300">เข้า 2 เด้งสูงสุด</span>
-          <span id="bannerMaxProfit" class="text-xs sm:text-sm font-extrabold text-emerald-400">กำไร +3,140฿</span>
+        <div class="p-2.5 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700/70 flex items-center gap-2.5">
+          <span class="w-6 h-6 rounded-lg bg-amber-500 text-ink-950 font-extrabold flex items-center justify-center shrink-0 tnum">2</span>
+          <span class="text-ink-800 dark:text-slate-200">กดปุ่ม <strong>"คัดลอกโพยพร้อมส่งให้คนขาย"</strong> ด้านล่างสุดของจอ</span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700/70 flex items-center gap-2.5">
+          <span class="w-6 h-6 rounded-lg bg-amber-500 text-ink-950 font-extrabold flex items-center justify-center shrink-0 tnum">3</span>
+          <span class="text-ink-800 dark:text-slate-200">นำไปวางส่งใน <strong>แชท LINE เจ้ามือ</strong> หรือวางในเว็บหวย แล้วโอนเงินตามยอดได้เลย!</span>
         </div>
       </div>
     </section>
 
-    <!-- ========================================================== -->
-    <!-- TAB 1: สรุปวิธีแทง (สำหรับคนไม่รู้เรื่องหวยเลย อ่านเข้าใจทันที)  -->
-    <!-- ========================================================== -->
-    <div id="tab-guide" class="tab-panel space-y-4">
+    <!-- ================================================================= -->
+    <!-- GENERATED SLIP AREA (Updates instantly on Randomize)              -->
+    <!-- ================================================================= -->
+    <div id="slipContainer" class="space-y-3">
+      <!-- Populated dynamically by JS depending on Mode 1 (Simple 38-num Single Price) or Mode 2 (3 Groups) -->
+    </div>
 
-      <!-- Plain-Language Intro Card -->
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-3">
-        <div class="flex items-start justify-between gap-2">
-          <div>
-            <span class="inline-block px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-300 mb-1">
-              กดสุ่มด้านบน · แล้วแทงตาม 3 กองนี้ได้เลย
-            </span>
-            <h2 class="text-base font-extrabold text-ink-900 dark:text-white">
-              ใบโพยพร้อมแทง: กดคัดลอกทีละกองไปวางซื้อได้เลย
-            </h2>
+    <!-- ================================================================= -->
+    <!-- OPTIONAL ACCORDION: เลือกเลขเด่นเอง / ลองตรวจผลรางวัล             -->
+    <!-- ================================================================= -->
+    <details class="group bg-white dark:bg-slate-900 rounded-2xl border border-paper-200 dark:border-slate-800 shadow-sm overflow-hidden">
+      <summary class="cursor-pointer list-none p-4 flex items-center justify-between font-extrabold text-sm text-ink-900 dark:text-white hover:bg-paper-50 dark:hover:bg-slate-800/50 transition-colors">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          </svg>
+          <span>อยากจิ้มเลือกเลขเด่นเอง หรือลองตรวจผลหวย (กดเปิด)</span>
+        </div>
+        <svg class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+
+      <div class="p-4 pt-0 border-t border-paper-200 dark:border-slate-800 space-y-4">
+        <!-- Custom Main Digits Keypad -->
+        <div class="pt-3 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold text-ink-900 dark:text-white">แตะเปลี่ยนเลขเด่น 2 ตัวหลัก:</span>
+            <span id="customMainLabel" class="text-xs font-bold text-amber-500 tnum">เด่น 4 - 7</span>
           </div>
-          <button type="button" id="jumpToPickBtn" class="cursor-pointer shrink-0 min-h-[38px] px-3 rounded-lg text-xs font-bold bg-paper-100 hover:bg-paper-200 dark:bg-slate-800 text-ink-900 dark:text-slate-200 border border-paper-300 dark:border-slate-700">
-            เลือกเลขเอง
-          </button>
+          <div id="mainKeypad" class="grid grid-cols-5 gap-1.5 tnum"></div>
         </div>
 
-        <p class="text-xs text-ink-600 dark:text-slate-300 leading-relaxed">
-          ไม่ต้องคิดคำนวณเอง! กดปุ่ม <strong class="text-amber-600 dark:text-amber-400">"กดสุ่มชุดเลขใหม่"</strong> ด้านบน แล้วคัดลอกเลขทั้ง <strong class="text-ink-900 dark:text-white">3 กอง (รวม 36 ตัว ไม่ซ้ำกันเลย)</strong> ไปซื้อทั้ง <strong class="text-ink-900 dark:text-white">2 ตัวบน</strong> และ <strong class="text-ink-900 dark:text-white">2 ตัวล่าง</strong> ตามราคาที่ระบุในแต่ละกอง:
-        </p>
-
-        <!-- Mode Switcher: Non-overlapping 3 Groups vs Web Shortcut -->
-        <div class="grid grid-cols-2 p-1 rounded-xl bg-paper-100 dark:bg-slate-800 border border-paper-200 dark:border-slate-700">
-          <button type="button" id="modeDirectBtn" class="cursor-pointer min-h-[38px] rounded-lg text-xs font-extrabold bg-ink-900 text-white dark:bg-amber-400 dark:text-ink-950 shadow-sm transition-all">
-            วิธีที่ 1: แยก 3 กอง (แทงตามง่ายสุด)
-          </button>
-          <button type="button" id="modeShortcutBtn" class="cursor-pointer min-h-[38px] rounded-lg text-xs font-bold text-ink-600 dark:text-slate-300 transition-all">
-            วิธีที่ 2: กดปุ่ม 19 ประตูในเว็บ
-          </button>
-        </div>
-      </section>
-
-      <!-- ===================================================== -->
-      <!-- VIEW A: แยก 3 กองแบบเลขไม่ซ้ำกันเลย (มือใหม่เข้าใจง่ายสุด) -->
-      <!-- ===================================================== -->
-      <div id="guideModeDirect" class="space-y-3">
-
-        <!-- Group 1: 2 Numbers (23 Baht) -->
-        <section class="receipt-card bg-white dark:bg-slate-900 rounded-2xl p-4 border-2 border-crimson-600/35 dark:border-rose-700/70 shadow-sm space-y-3">
-          <div class="flex items-start justify-between gap-2">
-            <div class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-crimson-600 text-white font-extrabold text-sm flex items-center justify-center shrink-0 tnum">1</span>
-              <div>
-                <h3 class="text-sm font-extrabold text-ink-900 dark:text-white">
-                  กองที่ 1: เลขคู่เอก (มีแค่ <span id="directG1Count">2</span> ตัวนี้)
-                </h3>
-                <p class="text-xs text-crimson-700 dark:text-rose-300 font-bold tnum" id="directG1Instruction">
-                  ซื้อ "2 ตัวบน" ตัวละ 23 บาท และ "2 ตัวล่าง" ตัวละ 23 บาท
-                </p>
-              </div>
-            </div>
-            <button type="button" data-copy-group="g1" class="copy-group-btn cursor-pointer min-h-[38px] px-3 rounded-lg bg-crimson-50 dark:bg-rose-950/60 border border-crimson-600/30 text-xs font-extrabold text-crimson-700 dark:text-rose-300 active:scale-95 shrink-0">
-              คัดลอกเลข
+        <!-- Quick Draw Simulator -->
+        <div class="pt-3 border-t border-paper-200 dark:border-slate-800 space-y-3 tnum">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold text-ink-900 dark:text-white">ลองกรอกเลขที่ออกเพื่อเช็คเงินรางวัล:</span>
+            <button id="randomDrawBtn" type="button" class="cursor-pointer px-2.5 py-1 rounded-lg text-[11px] font-bold bg-paper-100 dark:bg-slate-800 text-ink-800 dark:text-slate-300 border border-paper-300 dark:border-slate-700">
+              สุ่มผลหวยออก
             </button>
           </div>
-
-          <div class="p-3 rounded-xl bg-crimson-50/70 dark:bg-rose-950/30 border border-crimson-600/20">
-            <div class="text-[11px] font-semibold text-ink-600 dark:text-slate-400 mb-1.5">ตัวเลขที่ต้องซื้อในกองที่ 1:</div>
-            <div id="directG1Numbers" class="flex flex-wrap gap-2 tnum"></div>
-          </div>
-
-          <div class="flex items-center justify-between text-xs pt-1 border-t border-paper-200 dark:border-slate-800 tnum">
-            <span class="text-ink-600 dark:text-slate-400" id="directG1Math">วิธีคิดเงิน: 2 ตัว × (บน 23฿ + ล่าง 23฿)</span>
-            <span class="font-extrabold text-ink-900 dark:text-white" id="directG1Cost">ใช้เงิน 92 บาท</span>
-          </div>
-        </section>
-
-        <!-- Group 2: 8 Numbers (21 Baht) -->
-        <section class="receipt-card bg-white dark:bg-slate-900 rounded-2xl p-4 border-2 border-brass-500/40 dark:border-amber-600/60 shadow-sm space-y-3">
-          <div class="flex items-start justify-between gap-2">
-            <div class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-brass-600 text-white font-extrabold text-sm flex items-center justify-center shrink-0 tnum">2</span>
-              <div>
-                <h3 class="text-sm font-extrabold text-ink-900 dark:text-white">
-                  กองที่ 2: เลขตัวเน้นทำกำไร (มี <span id="directG2Count">8</span> ตัวนี้)
-                </h3>
-                <p class="text-xs text-brass-700 dark:text-amber-300 font-bold tnum" id="directG2Instruction">
-                  ซื้อ "2 ตัวบน" ตัวละ 21 บาท และ "2 ตัวล่าง" ตัวละ 21 บาท
-                </p>
-              </div>
+          <div class="grid grid-cols-2 gap-2.5">
+            <div class="p-2.5 rounded-xl bg-paper-50 dark:bg-slate-800 border border-paper-200 dark:border-slate-700 text-center">
+              <label for="simTopInput" class="block text-[10px] font-bold text-ink-500 dark:text-slate-400">รางวัล 2 ตัวบน</label>
+              <input id="simTopInput" type="text" inputmode="numeric" maxlength="2" value="47" class="w-full text-center bg-transparent text-xl font-extrabold text-ink-900 dark:text-amber-400 focus:outline-none" />
             </div>
-            <button type="button" data-copy-group="g2" class="copy-group-btn cursor-pointer min-h-[38px] px-3 rounded-lg bg-brass-50 dark:bg-amber-950/50 border border-brass-500/40 text-xs font-extrabold text-brass-700 dark:text-amber-300 active:scale-95 shrink-0">
-              คัดลอกเลข
-            </button>
-          </div>
-
-          <div class="p-3 rounded-xl bg-brass-50/70 dark:bg-amber-950/25 border border-brass-500/25">
-            <div class="text-[11px] font-semibold text-ink-600 dark:text-slate-400 mb-1.5">ตัวเลขที่ต้องซื้อในกองที่ 2 (ไม่ซ้ำกับกองแรก):</div>
-            <div id="directG2Numbers" class="grid grid-cols-4 sm:grid-cols-8 gap-2 tnum"></div>
-          </div>
-
-          <div class="flex items-center justify-between text-xs pt-1 border-t border-paper-200 dark:border-slate-800 tnum">
-            <span class="text-ink-600 dark:text-slate-400" id="directG2Math">วิธีคิดเงิน: 8 ตัว × (บน 21฿ + ล่าง 21฿)</span>
-            <span class="font-extrabold text-ink-900 dark:text-white" id="directG2Cost">ใช้เงิน 336 บาท</span>
-          </div>
-        </section>
-
-        <!-- Group 3: 26 Numbers (11 Baht) -->
-        <section class="receipt-card bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-300 dark:border-slate-700 shadow-sm space-y-3">
-          <div class="flex items-start justify-between gap-2">
-            <div class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-ink-900 dark:bg-slate-700 text-white font-extrabold text-sm flex items-center justify-center shrink-0 tnum">3</span>
-              <div>
-                <h3 class="text-sm font-extrabold text-ink-900 dark:text-white">
-                  กองที่ 3: เลขกันทุน (มี <span id="directG3Count">26</span> ตัวที่เหลือ)
-                </h3>
-                <p class="text-xs text-ink-600 dark:text-slate-300 font-bold tnum" id="directG3Instruction">
-                  ซื้อ "2 ตัวบน" ตัวละ 11 บาท และ "2 ตัวล่าง" ตัวละ 11 บาท
-                </p>
-              </div>
+            <div class="p-2.5 rounded-xl bg-paper-50 dark:bg-slate-800 border border-paper-200 dark:border-slate-700 text-center">
+              <label for="simBottomInput" class="block text-[10px] font-bold text-ink-500 dark:text-slate-400">รางวัล 2 ตัวล่าง</label>
+              <input id="simBottomInput" type="text" inputmode="numeric" maxlength="2" value="18" class="w-full text-center bg-transparent text-xl font-extrabold text-ink-900 dark:text-emerald-400 focus:outline-none" />
             </div>
-            <button type="button" data-copy-group="g3" class="copy-group-btn cursor-pointer min-h-[38px] px-3 rounded-lg bg-paper-100 dark:bg-slate-800 border border-paper-300 dark:border-slate-600 text-xs font-extrabold text-ink-900 dark:text-slate-200 active:scale-95 shrink-0">
-              คัดลอกเลข
-            </button>
           </div>
-
-          <div class="p-3 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700">
-            <div class="text-[11px] font-semibold text-ink-600 dark:text-slate-400 mb-1.5">ตัวเลขที่ต้องซื้อในกองที่ 3 (ถ้าออกกลุ่มนี้ ได้เงินทุนคืน):</div>
-            <div id="directG3Numbers" class="grid grid-cols-6 sm:grid-cols-9 gap-1.5 tnum"></div>
-          </div>
-
-          <div class="flex items-center justify-between text-xs pt-1 border-t border-paper-200 dark:border-slate-800 tnum">
-            <span class="text-ink-600 dark:text-slate-400" id="directG3Math">วิธีคิดเงิน: 26 ตัว × (บน 11฿ + ล่าง 11฿)</span>
-            <span class="font-extrabold text-ink-900 dark:text-white" id="directG3Cost">ใช้เงิน 572 บาท</span>
-          </div>
-        </section>
-
-        <!-- Total Equation Card -->
-        <div class="p-3.5 rounded-xl bg-ink-900 dark:bg-slate-800 text-white flex items-center justify-between text-xs tnum">
-          <span>รวมเงินทั้ง 3 กอง (<span id="directSumBreakdown">92 + 336 + 572</span>)</span>
-          <span class="text-sm font-extrabold text-amber-400" id="directSumTotal">= 1,000 บาทพอดีเป๊ะ</span>
+          <div id="simResultBox" class="p-3 rounded-xl bg-ink-900 dark:bg-slate-950 text-white text-xs space-y-1.5 border border-slate-800"></div>
         </div>
       </div>
-
-      <!-- ===================================================== -->
-      <!-- VIEW B: กดปุ่มลัด "19 ประตู" ในเว็บหวยออนไลน์ (3 ขั้นตอน) -->
-      <!-- ===================================================== -->
-      <div id="guideModeShortcut" class="hidden space-y-3">
-        <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-4">
-          <div class="border-b border-paper-200 dark:border-slate-800 pb-3">
-            <h3 class="text-sm font-extrabold text-ink-900 dark:text-white">
-              วิธีคีย์โพยในเว็บหวยออนไลน์แบบเร็ว (กดทับ 3 รอบ)
-            </h3>
-            <p class="text-xs text-ink-600 dark:text-slate-400 mt-0.5">
-              ถ้าเว็บที่คุณเล่นมีปุ่มลัด <strong>"19 ประตู"</strong> ไม่ต้องมานั่งจิ้มทีละตัว ให้กดตาม 3 ขั้นตอนนี้จะได้ยอดเงินตรงกับวิธีแรก 100% ครับ:
-            </p>
-          </div>
-
-          <!-- Step 1 -->
-          <div class="p-3.5 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="px-2 py-0.5 rounded text-xs font-extrabold bg-ink-900 dark:bg-slate-700 text-white">รอบที่ 1 · ปูพรม 36 ตัว</span>
-              <span id="shortcutCost1" class="text-xs font-extrabold text-ink-900 dark:text-white tnum">เป็นเงิน 792 บาท</span>
-            </div>
-            <p id="shortcutStep1Desc" class="text-xs text-ink-800 dark:text-slate-200 leading-relaxed"></p>
-            <div class="flex items-center justify-between pt-1">
-              <span class="text-[11px] text-ink-500 dark:text-slate-400">หรือกดคัดลอกทั้ง 36 ตัวไปวาง:</span>
-              <button type="button" data-copy="tier1" class="copy-section-btn cursor-pointer min-h-[36px] px-3 rounded-lg bg-white dark:bg-slate-900 border border-paper-300 dark:border-slate-600 text-xs font-bold text-ink-900 dark:text-white">
-                คัดลอก 36 ตัว
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="p-3.5 rounded-xl bg-brass-50/70 dark:bg-amber-950/25 border border-brass-500/30 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="px-2 py-0.5 rounded text-xs font-extrabold bg-brass-600 text-white">รอบที่ 2 · อัดเพิ่มชุดเน้น 10 ตัว</span>
-              <span id="shortcutCost2" class="text-xs font-extrabold text-brass-700 dark:text-amber-300 tnum">เป็นเงิน 200 บาท</span>
-            </div>
-            <p id="shortcutStep2Desc" class="text-xs text-ink-800 dark:text-slate-200 leading-relaxed"></p>
-            <div id="shortcutTier2List" class="p-2 rounded-lg bg-white dark:bg-slate-900 text-xs font-extrabold text-brass-700 dark:text-amber-300 tracking-wider tnum"></div>
-            <div class="flex justify-end">
-              <button type="button" data-copy="tier2" class="copy-section-btn cursor-pointer min-h-[36px] px-3 rounded-lg bg-white dark:bg-slate-900 border border-brass-500/40 text-xs font-bold text-brass-700 dark:text-amber-300">
-                คัดลอก 10 ตัวเน้น
-              </button>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="p-3.5 rounded-xl bg-crimson-50/70 dark:bg-rose-950/25 border border-crimson-600/25 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="px-2 py-0.5 rounded text-xs font-extrabold bg-crimson-600 text-white">รอบที่ 3 · อัดเพิ่มคู่เอก 2 ตัว</span>
-              <span id="shortcutCost3" class="text-xs font-extrabold text-crimson-700 dark:text-rose-300 tnum">เป็นเงิน 8 บาท</span>
-            </div>
-            <p id="shortcutStep3Desc" class="text-xs text-ink-800 dark:text-slate-200 leading-relaxed"></p>
-            <div id="shortcutTier3List" class="p-2 rounded-lg bg-white dark:bg-slate-900 text-xs font-extrabold text-crimson-700 dark:text-rose-300 tracking-wider tnum"></div>
-            <div class="flex justify-end">
-              <button type="button" data-copy="tier3" class="copy-section-btn cursor-pointer min-h-[36px] px-3 rounded-lg bg-white dark:bg-slate-900 border border-crimson-600/30 text-xs font-bold text-crimson-700 dark:text-rose-300">
-                คัดลอก 2 ตัวเอก
-              </button>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- Plain-Language Outcome Box ("เวลาหวยออก จะได้เงินยังไง?") -->
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-3">
-        <div>
-          <h3 class="text-sm font-extrabold text-ink-900 dark:text-white">
-            เวลาหวยออก จะได้เงินยังไง? (ตัวอย่างเข้าใจง่าย)
-          </h3>
-          <p class="text-xs text-ink-600 dark:text-slate-400">
-            สมมติเจ้ามือจ่ายบาทละ <span id="exampleRateText" class="font-bold">90</span> บาท และคุณลงทุนไป <span id="exampleTotalText" class="font-bold">1,000</span> บาท:
-          </p>
-        </div>
-
-        <div id="plainExamplesBox" class="space-y-2 text-xs tnum"></div>
-      </section>
-
-      <!-- Essential Strategy & FAQ Box (ครบหลักการแทงให้ชนะสูงสุด) -->
-      <section class="bg-paper-50 dark:bg-slate-900 rounded-2xl p-4 border border-paper-300 dark:border-slate-800 space-y-3 text-xs">
-        <div class="flex items-center justify-between">
-          <h3 class="font-extrabold text-ink-900 dark:text-white text-sm">
-            3 กฎเหล็กก่อนส่งโพย & คำถามที่มือใหม่ต้องรู้
-          </h3>
-          <span class="px-2 py-0.5 rounded bg-amber-100 text-brass-700 dark:bg-amber-500/20 dark:text-amber-300 font-bold text-[11px]">
-            สำคัญมาก
-          </span>
-        </div>
-
-        <div class="space-y-2.5 text-ink-600 dark:text-slate-300 leading-relaxed">
-          <div class="p-3 rounded-xl bg-white dark:bg-slate-800/70 border border-paper-200 dark:border-slate-700/80">
-            <strong class="text-crimson-700 dark:text-rose-300 block mb-0.5">1. ถ้าเจอ "เลขอั้น / จ่ายครึ่งราคา" ต้องทำยังไง?</strong>
-            ก่อนกดยืนยันโพย ให้ดูว่าเลขใน <strong>กองที่ 1 (2 ตัว)</strong> หรือ <strong>กองที่ 2 (8 ตัว)</strong> ติดเลขอั้นจ่ายครึ่ง (เช่น จ่ายแค่บาทละ 45–50) หรือไม่ หากติดอั้น <strong>ห้ามซื้อเด็ดขาด</strong> เพราะถ้าถูกจะได้ไม่คุ้มทุน ให้กดไปที่แท็บ <strong>"เปลี่ยนเลข"</strong> แล้วเลือกเลขรองตัวอื่นที่จ่ายเต็มเรท 90–95 แทนทันที
-          </div>
-
-          <div class="p-3 rounded-xl bg-white dark:bg-slate-800/70 border border-paper-200 dark:border-slate-700/80">
-            <strong class="text-ink-900 dark:text-white block mb-0.5">2. ทำไมเลขเบิ้ล (<span id="faqDoubleDigits" class="tnum">44, 77</span>) ถึงอยู่ในกองที่ 3 (11 บาท)?</strong>
-            เพราะเลขเบิ้ลไม่มีตัวกลับ (มีโอกาสออกแค่ 1% ต่อตัว ต่างจากเลขคู่ผสมไป–กลับที่มีโอกาส 2%) การวางเลขเบิ้ลไว้ในกองที่ 3 ตัวละ 11 บาท จะช่วยดักเซฟทุนคืนครบ (~990–1,045฿) ทันทีเมื่อหวยออกเบิ้ล โดยไม่เปลืองงบของชุดตัวเน้น
-          </div>
-
-          <div class="p-3 rounded-xl bg-white dark:bg-slate-800/70 border border-paper-200 dark:border-slate-700/80 tnum">
-            <strong class="text-emerald-800 dark:text-emerald-300 block mb-0.5">3. ทำไมโอกาสถูกรางวัลถึงสูงถึง 59.04%?</strong>
-            ในแต่ละงวดมีรางวัล 2 ตัวบน (โอกาสถูก 36%) และ 2 ตัวล่าง (โอกาสถูก 36%) ที่ออกแยกกัน โอกาสที่จะหลุดพร้อมกันทั้งบนและล่างมีเพียง <strong>64% × 64% = 40.96%</strong> เท่านั้น ส่งผลให้คุณมีโอกาสถูกรางวัลอย่างน้อย 1 ฝั่งสูงถึง <strong>59.04%</strong> (แบ่งเป็นถูก 1 ฝั่ง <strong>46.08%</strong> และเข้าเด้งทั้งบน+ล่าง <strong>12.96%</strong>)
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================== -->
-    <!-- TAB 2: เปลี่ยนเลขเด่น & เลขรอง (Tactile 0-9 Keypad)           -->
-    <!-- ========================================================== -->
-    <div id="tab-pick" class="tab-panel hidden space-y-4">
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-4">
-        <div class="flex items-center justify-between">
-          <div>
-            <h2 class="text-sm font-extrabold text-ink-900 dark:text-white">1. แตะเลือก "เลขเด่น 2 ตัว" ที่ชอบ</h2>
-            <p class="text-xs text-ink-600 dark:text-slate-400">แตะตัวเลข 2 ตัวที่คาดว่าจะมาในงวดนี้ (กระจายได้ 36 ตัว)</p>
-          </div>
-          <button id="smartPickBtn" type="button" class="cursor-pointer min-h-[38px] px-3 rounded-lg text-xs font-bold bg-paper-100 hover:bg-paper-200 dark:bg-slate-800 text-ink-900 dark:text-slate-200 border border-paper-300 dark:border-slate-700 active:opacity-75 flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-brass-600 dark:text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            <span>สุ่มเลขสมดุล</span>
-          </button>
-        </div>
-
-        <div id="mainKeypad" class="grid grid-cols-5 gap-2 tnum" role="group" aria-label="แป้นเลือกเลขเด่น 2 ตัว"></div>
-
-        <div id="balanceStatusBox" class="px-3 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-between text-xs">
-          <span id="balanceStatusText" class="font-semibold text-emerald-900 dark:text-emerald-300"></span>
-        </div>
-
-        <div class="border-t border-paper-200 dark:border-slate-800 pt-3">
-          <div class="flex items-center justify-between mb-2">
-            <div>
-              <h3 class="text-sm font-extrabold text-ink-900 dark:text-white">2. แตะเลือก "เลขรอง 2 ตัว" (ไม่ซ้ำเลขเด่น)</h3>
-              <p class="text-xs text-ink-600 dark:text-slate-400">ปุ่มที่มีป้าย <span class="font-bold text-emerald-700 dark:text-emerald-400">"แต้มดี"</span> คือเลขที่บวกกับเลขเด่นแล้วได้แต้ม 7–11</p>
-            </div>
-            <span id="subSelectedLabel" class="text-xs font-extrabold px-2 py-0.5 rounded bg-amber-100 text-brass-700 dark:bg-amber-500/20 dark:text-amber-300 tnum shrink-0">
-              รอง 2 - 5
-            </span>
-          </div>
-
-          <div id="subKeypad" class="grid grid-cols-5 gap-2 tnum" role="group" aria-label="แป้นเลือกเลขรอง 2 ตัว"></div>
-        </div>
-
-        <!-- Beginner Guide on How to Pick Digits -->
-        <div class="p-3 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700 text-xs space-y-1.5 text-ink-600 dark:text-slate-300">
-          <strong class="text-ink-900 dark:text-white block">เทคนิคเลือกเลขด้วยตัวเองให้มีโอกาสเข้าสูงสุด:</strong>
-          <p>• <strong>เลขเด่น 2 ตัว:</strong> ให้เลือกเลขโซนต่ำ (0–4) 1 ตัว คู่กับโซนสูง (5–9) 1 ตัว และให้เป็นเลขคู่ 1 ตัว + เลขคี่ 1 ตัว (เช่น 4 กับ 7 หรือ 2 กับ 9)</p>
-          <p>• <strong>เลขรอง 2 ตัว:</strong> แนะนำให้เลือกปุ่มที่มีคำว่า <strong>"แต้มดี"</strong> เพราะเมื่อจับคู่กับเลขเด่นแล้วจะได้ผลรวมหลักสิบ+หน่วยเท่ากับ 7–11 แต้ม ซึ่งเป็นโซนที่ออกบ่อยที่สุดตามสถิติ</p>
-        </div>
-
-        <div class="pt-1">
-          <button type="button" id="donePickBtn" class="cursor-pointer w-full min-h-[44px] rounded-xl bg-ink-900 dark:bg-amber-500 text-white dark:text-ink-950 font-extrabold text-sm">
-            ดูสรุปเลขที่ต้องแทงจากชุดนี้ →
-          </button>
-        </div>
-      </section>
-    </div>
-
-    <!-- ========================================================== -->
-    <!-- TAB 3: ปรับงบ & ดูตารางกำไร 7 กรณี                           -->
-    <!-- ========================================================== -->
-    <div id="tab-money" class="tab-panel hidden space-y-4">
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-4">
-        <div>
-          <h2 class="text-sm font-extrabold text-ink-900 dark:text-white">ตั้งค่าเรทจ่าย & ปรับยอดเงินต่อตัว</h2>
-          <p class="text-xs text-ink-600 dark:text-slate-400">ค่าเริ่มต้นตั้งไว้ที่งบ 1,000 บาทพอดี (กอง 1: 23฿ / กอง 2: 21฿ / กอง 3: 11฿)</p>
-        </div>
-
-        <div class="grid grid-cols-3 gap-2 tnum" role="group" aria-label="เลือกเรทจ่ายรางวัล">
-          <button type="button" data-rate="90" class="rate-btn cursor-pointer min-h-[44px] rounded-xl text-xs font-extrabold border-2 border-ink-900 bg-ink-900 text-white dark:border-amber-400 dark:bg-amber-400 dark:text-ink-950 transition-colors">
-            จ่ายบาทละ 90
-          </button>
-          <button type="button" data-rate="92" class="rate-btn cursor-pointer min-h-[44px] rounded-xl text-xs font-bold border border-paper-300 dark:border-slate-700 bg-paper-50 dark:bg-slate-800 text-ink-800 dark:text-slate-300 transition-colors">
-            จ่ายบาทละ 92
-          </button>
-          <button type="button" data-rate="95" class="rate-btn cursor-pointer min-h-[44px] rounded-xl text-xs font-bold border border-paper-300 dark:border-slate-700 bg-paper-50 dark:bg-slate-800 text-ink-800 dark:text-slate-300 transition-colors">
-            จ่ายบาทละ 95
-          </button>
-        </div>
-
-        <div class="space-y-2.5 tnum">
-          <div class="p-3 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700 flex items-center justify-between gap-2">
-            <div>
-              <span class="text-xs font-extrabold text-ink-900 dark:text-white block">ราคาพื้นฐาน (กองที่ 3: เลขกันทุน)</span>
-              <span id="step1CostText" class="text-[11px] text-ink-600 dark:text-slate-400">ตัวละ 11 บาท (บน 11 + ล่าง 11)</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <button type="button" data-step="bet1" data-delta="-1" aria-label="ลดเงินพื้นฐาน" class="step-btn cursor-pointer w-10 h-10 rounded-lg bg-white dark:bg-slate-900 border border-paper-300 dark:border-slate-600 font-extrabold text-base flex items-center justify-center active:scale-95">-</button>
-              <input id="betLayer1" type="number" min="1" max="500" value="11" aria-label="จำนวนเงินชั้นที่ 1" class="w-14 h-10 text-center rounded-lg bg-white dark:bg-slate-900 border border-paper-300 dark:border-slate-600 font-extrabold text-sm text-ink-900 dark:text-white" />
-              <button type="button" data-step="bet1" data-delta="1" aria-label="เพิ่มเงินพื้นฐาน" class="step-btn cursor-pointer w-10 h-10 rounded-lg bg-white dark:bg-slate-900 border border-paper-300 dark:border-slate-600 font-extrabold text-base flex items-center justify-center active:scale-95">+</button>
-            </div>
-          </div>
-
-          <div class="p-3 rounded-xl bg-brass-50/70 dark:bg-amber-950/20 border border-brass-500/30 dark:border-amber-700/40 flex items-center justify-between gap-2">
-            <div>
-              <span class="text-xs font-extrabold text-ink-900 dark:text-white block">บวกเพิ่มให้กองที่ 2 (เลขเน้น 8 ตัว)</span>
-              <span id="step2CostText" class="text-[11px] text-brass-700 dark:text-amber-300">รวมเป็นตัวละ 21 บาท (บน 21 + ล่าง 21)</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <button type="button" data-step="bet2" data-delta="-1" aria-label="ลดเงินบวกเพิ่มกองที่ 2" class="step-btn cursor-pointer w-10 h-10 rounded-lg bg-white dark:bg-slate-900 border border-brass-500/40 dark:border-amber-700 font-extrabold text-base flex items-center justify-center active:scale-95">-</button>
-              <input id="betLayer2" type="number" min="0" max="500" value="10" aria-label="จำนวนเงินชั้นที่ 2" class="w-14 h-10 text-center rounded-lg bg-white dark:bg-slate-900 border border-brass-500/40 dark:border-amber-700 font-extrabold text-sm text-ink-900 dark:text-white" />
-              <button type="button" data-step="bet2" data-delta="1" aria-label="เพิ่มเงินบวกเพิ่มกองที่ 2" class="step-btn cursor-pointer w-10 h-10 rounded-lg bg-white dark:bg-slate-900 border border-brass-500/40 dark:border-amber-700 font-extrabold text-base flex items-center justify-center active:scale-95">+</button>
-            </div>
-          </div>
-
-          <div class="p-3 rounded-xl bg-crimson-50/70 dark:bg-rose-950/20 border border-crimson-600/25 dark:border-rose-800/40 flex items-center justify-between gap-2">
-            <div>
-              <span class="text-xs font-extrabold text-ink-900 dark:text-white block">บวกเพิ่มให้กองที่ 1 (คู่เอก 2 ตัว)</span>
-              <span id="step3CostText" class="text-[11px] text-crimson-700 dark:text-rose-300">รวมเป็นตัวละ 23 บาท (บน 23 + ล่าง 23)</span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <button type="button" data-step="bet3" data-delta="-1" aria-label="ลดเงินบวกเพิ่มกองที่ 1" class="step-btn cursor-pointer w-10 h-10 rounded-lg bg-white dark:bg-slate-900 border border-crimson-600/30 dark:border-rose-700 font-extrabold text-base flex items-center justify-center active:scale-95">-</button>
-              <input id="betLayer3" type="number" min="0" max="500" value="2" aria-label="จำนวนเงินชั้นที่ 3" class="w-14 h-10 text-center rounded-lg bg-white dark:bg-slate-900 border border-crimson-600/30 dark:border-rose-700 font-extrabold text-sm text-ink-900 dark:text-white" />
-              <button type="button" data-step="bet3" data-delta="1" aria-label="เพิ่มเงินบวกเพิ่มกองที่ 1" class="step-btn cursor-pointer w-10 h-10 rounded-lg bg-white dark:bg-slate-900 border border-crimson-600/30 dark:border-rose-700 font-extrabold text-base flex items-center justify-center active:scale-95">+</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-3">
-        <div class="flex items-center justify-between">
-          <h2 class="text-sm font-extrabold text-ink-900 dark:text-white">ตารางผลตอบแทนทั้ง 7 กรณี</h2>
-          <span id="scenarioRateBadge" class="text-xs font-bold text-brass-600 dark:text-amber-400 tnum">เรทจ่าย 90</span>
-        </div>
-        <div id="scenarioList" class="space-y-2 tnum"></div>
-      </section>
-    </div>
-
-    <!-- ========================================================== -->
-    <!-- TAB 4: ผัง 100 เลข & จำลองตรวจหวย                            -->
-    <!-- ========================================================== -->
-    <div id="tab-check" class="tab-panel hidden space-y-4">
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-4">
-        <div class="flex items-center justify-between">
-          <div>
-            <h2 class="text-sm font-extrabold text-ink-900 dark:text-white">ลองกรอกเลขตรวจผลกำไร</h2>
-            <p class="text-xs text-ink-600 dark:text-slate-400">แตะช่องบนหรือล่าง แล้วจิ้มตัวเลขจากผัง 00–99 ด้านล่างได้เลย</p>
-          </div>
-          <button id="randomDrawBtn" type="button" class="cursor-pointer min-h-[36px] px-3 rounded-lg text-xs font-bold bg-paper-100 hover:bg-paper-200 dark:bg-slate-800 text-ink-900 dark:text-slate-200 border border-paper-300 dark:border-slate-700 active:opacity-75">
-            สุ่มเลขรางวัล
-          </button>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3 tnum">
-          <div id="simTopBox" class="p-3 rounded-xl bg-paper-50 dark:bg-slate-800 border-2 border-ink-900 dark:border-amber-400 text-center cursor-pointer transition-colors">
-            <label for="simTopInput" class="block text-[11px] font-extrabold text-ink-900 dark:text-amber-400 mb-1">รางวัล 2 ตัวบน (กำลังเลือก)</label>
-            <input id="simTopInput" type="text" inputmode="numeric" maxlength="2" value="47" class="w-full text-center bg-transparent text-2xl font-extrabold tracking-widest text-ink-900 dark:text-amber-400 focus:outline-none" />
-          </div>
-          <div id="simBottomBox" class="p-3 rounded-xl bg-paper-50 dark:bg-slate-800 border border-paper-200 dark:border-slate-700 text-center cursor-pointer transition-colors">
-            <label for="simBottomInput" class="block text-[11px] font-bold text-ink-600 dark:text-slate-400 mb-1">รางวัล 2 ตัวล่าง</label>
-            <input id="simBottomInput" type="text" inputmode="numeric" maxlength="2" value="18" class="w-full text-center bg-transparent text-2xl font-extrabold tracking-widest text-ink-900 dark:text-emerald-400 focus:outline-none" />
-          </div>
-        </div>
-
-        <div id="simResultBox" class="p-3.5 rounded-xl bg-ink-900 text-white space-y-2 tnum"></div>
-      </section>
-
-      <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-200 dark:border-slate-800 shadow-sm space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <h2 class="text-sm font-extrabold text-ink-900 dark:text-white">ผังเลข 00–99 (สีที่มีคือเลขที่เราดักไว้)</h2>
-          <div class="flex items-center gap-2.5 text-[11px] font-bold">
-            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-crimson-600"></span>กอง 1 (23฿)</span>
-            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-amber-500"></span>กอง 2 (21฿)</span>
-            <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-ink-900 dark:bg-blue-600"></span>กอง 3 (11฿)</span>
-          </div>
-        </div>
-
-        <div id="heatmapGrid" class="grid-10 gap-1 tnum"></div>
-      </section>
-    </div>
+    </details>
 
   </main>
 
-  <!-- Fixed Bottom Thumb Bar -->
-  <div class="fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-ink-900/95 backdrop-blur-md border-t border-paper-200 dark:border-slate-800 safe-bar pt-2.5 px-4 shadow-lg">
-    <div class="max-w-xl mx-auto flex items-center justify-between gap-3">
+  <!-- Fixed Bottom Thumb Bar (One-Click Copy Ready-to-Send Message) -->
+  <div class="fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-ink-900/95 backdrop-blur-md border-t border-paper-200 dark:border-slate-800 safe-bar pt-2.5 px-4 shadow-2xl">
+    <div class="max-w-lg mx-auto flex items-center justify-between gap-3">
       <div class="tnum">
-        <div class="text-[11px] font-semibold text-ink-600 dark:text-slate-400">
-          โพยครบ 3 กอง (36 เลข บน–ล่าง)
+        <div id="bottomSummaryTitle" class="text-[11px] font-semibold text-ink-600 dark:text-slate-400">
+          38 เลข (บน 13฿ + ล่าง 13฿)
         </div>
         <div class="text-base font-extrabold text-ink-900 dark:text-white">
-          รวม <span id="bottomBarTotal" class="text-brass-600 dark:text-amber-400">1,000</span> บาท
+          งบรวม <span id="bottomBarTotal" class="text-amber-600 dark:text-amber-400">988</span> บาท
         </div>
       </div>
 
-      <button id="copyAllSlipBtn" type="button" class="cursor-pointer min-h-[46px] px-5 rounded-xl bg-ink-900 hover:bg-ink-800 dark:bg-amber-500 dark:hover:bg-amber-400 text-white dark:text-ink-950 font-extrabold text-sm flex items-center gap-2 shadow-sm active:scale-[0.98] transition-all">
-        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+      <button id="copyAllSlipBtn" type="button" class="cursor-pointer min-h-[48px] px-5 rounded-xl bg-amber-500 hover:bg-amber-400 text-ink-950 font-extrabold text-sm flex items-center gap-2 shadow-md active:scale-[0.98] transition-all">
+        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.3" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
-        <span>คัดลอกใบโพยส่งเจ้ามือ</span>
+        <span>คัดลอกโพยส่งคนขาย</span>
       </button>
     </div>
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" role="status" aria-live="polite" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2 px-4 py-2.5 rounded-full bg-ink-900 dark:bg-white text-white dark:text-ink-950 text-xs font-extrabold shadow-xl border border-slate-700 dark:border-paper-200 whitespace-nowrap">
-    <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+  <div id="toast" role="status" aria-live="polite" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2 px-4 py-2.5 rounded-full bg-amber-400 text-ink-950 text-xs font-extrabold shadow-xl whitespace-nowrap">
+    <svg class="w-4 h-4 text-ink-950 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.8" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
     </svg>
-    <span id="toastMsg">คัดลอกโพยเรียบร้อยแล้ว</span>
+    <span id="toastMsg">คัดลอกเรียบร้อยแล้ว</span>
   </div>
 
   <script>
-    // State: kept in chronological FIFO order [olderTap, newerTap] so tapping any two digits works 100% predictably
+    // State
+    // mode: 'simple' = 38 numbers single price (13B top + 13B bottom = 988B, 61.56% win rate, every hit profits!)
+    // mode: '3group' = 36 numbers 3 groups (23B / 21B / 11B = 1,000B, 59.04% win rate, up to +3,140B profit)
     let state = {
+      mode: 'simple',
       mainDigits: [4, 7],
       subDigits: [2, 5],
       rate: 90,
-      bet1: 11, // กอง 3: 11 บาท
-      bet2: 10, // บวกเพิ่มอีก 10 บาท -> กอง 2 = 21 บาท
-      bet3: 2,  // บวกเพิ่มอีก 2 บาท -> กอง 1 = 23 บาท
       simTop: '47',
-      simBottom: '18',
-      activeSimTarget: 'top' // 'top' or 'bottom'
+      simBottom: '18'
     };
 
     let toastTimer = null;
@@ -648,12 +275,10 @@
       return [...state.subDigits].sort((a, b) => a - b);
     }
 
-    // Check if candidate sub digit has a golden sum (7..11) with at least one main digit
     function hasGoodSum(d, mainArr) {
       return mainArr.some(m => (m + d) >= 7 && (m + d) <= 11);
     }
 
-    // Ensure subDigits never overlap with mainDigits
     function resolveSubDigitOverlap() {
       const mSet = new Set(state.mainDigits);
       const used = new Set([...state.mainDigits]);
@@ -665,8 +290,6 @@
           used.add(s);
         }
       }
-
-      // Fill any missing slot with a non-overlapping digit that has good sum (7..11)
       for (let d = 0; d <= 9; d++) {
         if (newSubs.length >= 2) break;
         if (!used.has(d) && hasGoodSum(d, state.mainDigits)) {
@@ -681,7 +304,6 @@
           used.add(d);
         }
       }
-
       state.subDigits = newSubs;
     }
 
@@ -702,12 +324,18 @@
       const door1 = get19Door(m1);
       const door2 = get19Door(m2);
       const baseSet = new Set([...door1, ...door2]);
-      const baseList = Array.from(baseSet); // 36 numbers
+      const base36List = Array.from(baseSet); // 36 numbers
 
+      // For Simple 38-number Mode (61.56% Win Rate):
+      // 36 numbers from 2 main digits + 2 extra Golden-Sum pair from subDigits (s1+s2 and s2+s1) = 38 numbers!
+      const simple38Set = new Set([...base36List, `${s1}${s2}`, `${s2}${s1}`]);
+      const simple38List = Array.from(simple38Set); // 38 numbers
+
+      // For 3-Group Mode:
       const collisionSet = new Set([`${m1}${m2}`, `${m2}${m1}`]);
-      const collisionList = Array.from(collisionSet); // 2 numbers (Group 1)
+      const group1List = Array.from(collisionSet); // 2 numbers (23B)
 
-      const coreSet = new Set([...collisionList]);
+      const coreSet = new Set([...group1List]);
       for (const m of [m1, m2]) {
         for (const s of [s1, s2]) {
           if (m !== s) {
@@ -716,18 +344,15 @@
           }
         }
       }
-      const coreList = Array.from(coreSet).slice(0, 10); // Always 10 numbers (2 collision + 8 paired)
+      const coreList = Array.from(coreSet).slice(0, 10);
       const coreLookup = new Set(coreList);
-
-      // Non-overlapping 3 groups:
-      const group1List = collisionList; // 2 numbers
-      const group2List = coreList.filter(n => !collisionSet.has(n)); // 8 numbers
-      const group3List = baseList.filter(n => !coreLookup.has(n)); // 26 numbers
+      const group2List = coreList.filter(n => !collisionSet.has(n)); // 8 numbers (21B)
+      const group3List = base36List.filter(n => !coreLookup.has(n));   // 26 numbers (11B)
 
       return {
-        baseList,
-        coreList,
-        collisionList,
+        simple38List,
+        simple38Set,
+        base36List,
         group1List,
         group2List,
         group3List,
@@ -737,77 +362,29 @@
       };
     }
 
-    function getBetForNumber(numStr, portfolio) {
-      let b = 0;
-      if (portfolio.baseSet.has(numStr)) b += state.bet1;
-      if (portfolio.coreLookup.has(numStr)) b += state.bet2;
-      if (portfolio.collisionSet.has(numStr)) b += state.bet3;
-      return b;
-    }
-
-    function switchTab(target) {
-      document.querySelectorAll('.tab-btn').forEach(b => {
-        if (b.getAttribute('data-tab') === target) {
-          b.className = 'tab-btn cursor-pointer min-h-[38px] rounded-lg text-xs font-extrabold transition-all bg-white dark:bg-ink-900 text-ink-900 dark:text-white shadow-sm';
-        } else {
-          b.className = 'tab-btn cursor-pointer min-h-[38px] rounded-lg text-xs font-bold transition-all text-ink-600 dark:text-slate-400 hover:text-ink-900 dark:hover:text-white';
-        }
-      });
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
-      document.getElementById(`tab-${target}`).classList.remove('hidden');
-    }
-
-    function renderKeypads() {
-      resolveSubDigitOverlap();
+    function renderKeypad() {
       const mainKeypad = document.getElementById('mainKeypad');
-      const subKeypad = document.getElementById('subKeypad');
+      const [m1, m2] = getSortedMain();
+      document.getElementById('customMainLabel').textContent = `เด่น ${m1} - ${m2} (รอง ${getSortedSub().join('-')})`;
 
-      let mainHtml = '';
-      let subHtml = '';
-
+      let html = '';
       for (let d = 0; d <= 9; d++) {
         const isMain = state.mainDigits.includes(d);
-        const isSub = state.subDigits.includes(d);
-        const parityLabel = d % 2 === 0 ? 'คู่' : 'คี่';
-        const zoneLabel = d <= 4 ? 'ต่ำ' : 'สูง';
-        const goodSum = !isMain && hasGoodSum(d, state.mainDigits);
-
-        mainHtml += `
-          <button type="button" data-main-digit="${d}" aria-pressed="${isMain}" class="cursor-pointer min-h-[54px] rounded-xl border flex flex-col items-center justify-center transition-all active:scale-95 ${
+        const p = d % 2 === 0 ? 'คู่' : 'คี่';
+        const z = d <= 4 ? 'ต่ำ' : 'สูง';
+        html += `
+          <button type="button" data-main-digit="${d}" class="cursor-pointer min-h-[46px] rounded-xl border flex flex-col items-center justify-center transition-all active:scale-95 ${
             isMain
-              ? 'bg-ink-900 dark:bg-amber-400 text-white dark:text-ink-950 border-ink-900 dark:border-amber-400 font-extrabold shadow-sm ring-2 ring-ink-900/20 dark:ring-amber-400/30'
-              : 'bg-paper-50 dark:bg-slate-800/80 text-ink-800 dark:text-slate-200 border-paper-200 dark:border-slate-700 font-bold hover:border-ink-600'
+              ? 'bg-amber-500 text-ink-950 border-amber-400 font-extrabold shadow-sm'
+              : 'bg-paper-50 dark:bg-slate-800 text-ink-800 dark:text-slate-300 border-paper-200 dark:border-slate-700 font-bold'
           }">
-            <span class="text-lg leading-none">${d}</span>
-            <span class="text-[10px] mt-1 opacity-75 font-medium">${parityLabel}·${zoneLabel}</span>
+            <span class="text-base leading-none">${d}</span>
+            <span class="text-[9px] mt-0.5 opacity-80">${p}·${z}</span>
           </button>
         `;
-
-        if (isMain) {
-          subHtml += `
-            <button type="button" disabled aria-disabled="true" class="min-h-[50px] rounded-xl border border-dashed border-paper-300 dark:border-slate-800 bg-paper-100/50 dark:bg-slate-900/40 text-ink-500/40 dark:text-slate-600 flex flex-col items-center justify-center cursor-not-allowed">
-              <span class="text-base font-bold leading-none">${d}</span>
-              <span class="text-[9px] mt-1 font-semibold">เลขเด่น</span>
-            </button>
-          `;
-        } else {
-          subHtml += `
-            <button type="button" data-sub-digit="${d}" aria-pressed="${isSub}" class="cursor-pointer min-h-[50px] rounded-xl border flex flex-col items-center justify-center transition-all active:scale-95 ${
-              isSub
-                ? 'bg-brass-600 dark:bg-amber-500 text-white dark:text-ink-950 border-brass-600 dark:border-amber-500 font-extrabold shadow-sm ring-2 ring-brass-500/25'
-                : 'bg-paper-50 dark:bg-slate-800/80 text-ink-800 dark:text-slate-200 border-paper-200 dark:border-slate-700 font-bold hover:border-brass-500'
-            }">
-              <span class="text-base leading-none">${d}</span>
-              <span class="text-[9px] mt-1 ${isSub ? 'text-white/90 dark:text-ink-950 font-bold' : (goodSum ? 'text-emerald-700 dark:text-emerald-400 font-bold' : 'opacity-60')}">${goodSum ? 'แต้มดี' : 'เลือกได้'}</span>
-            </button>
-          `;
-        }
       }
+      mainKeypad.innerHTML = html;
 
-      mainKeypad.innerHTML = mainHtml;
-      subKeypad.innerHTML = subHtml;
-
-      // FIFO Queue Selection: state.mainDigits[1] is ALWAYS the most recent tap
       mainKeypad.querySelectorAll('[data-main-digit]').forEach(btn => {
         btn.addEventListener('click', () => {
           const d = Number(btn.getAttribute('data-main-digit'));
@@ -817,326 +394,261 @@
           renderAll();
         });
       });
-
-      subKeypad.querySelectorAll('[data-sub-digit]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const d = Number(btn.getAttribute('data-sub-digit'));
-          if (state.subDigits.includes(d) || state.mainDigits.includes(d)) return;
-          state.subDigits = [state.subDigits[1], d];
-          renderAll();
-        });
-      });
-    }
-
-    function renderBalanceStatus() {
-      const [d1, d2] = getSortedMain();
-      const box = document.getElementById('balanceStatusBox');
-      const text = document.getElementById('balanceStatusText');
-
-      const diffParity = (d1 % 2) !== (d2 % 2);
-      const diffZone = (d1 <= 4 && d2 >= 5) || (d1 >= 5 && d2 <= 4);
-      const p1 = d1 % 2 === 0 ? 'คู่' : 'คี่';
-      const z1 = d1 <= 4 ? 'ต่ำ' : 'สูง';
-      const p2 = d2 % 2 === 0 ? 'คู่' : 'คี่';
-      const z2 = d2 <= 4 ? 'ต่ำ' : 'สูง';
-
-      if (diffParity && diffZone) {
-        box.className = 'px-3 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-between text-xs';
-        text.className = 'font-semibold text-emerald-900 dark:text-emerald-300';
-        text.textContent = `สมดุลครบขั้ว: เลข ${d1} (${p1}·${z1}) คู่กับ เลข ${d2} (${p2}·${z2}) กระจายครบ 36 ตัว`;
-      } else {
-        box.className = 'px-3 py-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex items-center justify-between text-xs';
-        text.className = 'font-semibold text-amber-900 dark:text-amber-300';
-        text.textContent = `เลข ${d1} (${p1}·${z1}) และ ${d2} (${p2}·${z2}) อยู่โซนใกล้กัน (แนะนำเลือก ต่ำ 1 ตัว + สูง 1 ตัว)`;
-      }
     }
 
     function renderAll() {
-      renderKeypads();
-      renderBalanceStatus();
-
+      renderKeypad();
       const portfolio = computePortfolio();
       const [m1, m2] = getSortedMain();
       const [s1, s2] = getSortedSub();
 
-      const priceG3 = state.bet1;                           // 11 Baht
-      const priceG2 = state.bet1 + state.bet2;              // 21 Baht
-      const priceG1 = state.bet1 + state.bet2 + state.bet3; // 23 Baht
+      const slipContainer = document.getElementById('slipContainer');
+      const heroStatsGrid = document.getElementById('heroStatsGrid');
 
-      const g1Count = portfolio.group1List.length; // 2
-      const g2Count = portfolio.group2List.length; // 8
-      const g3Count = portfolio.group3List.length; // 26
+      if (state.mode === 'simple') {
+        // ============================================================
+        // MODE 1: ULTRA-SIMPLE SINGLE PRICE (38 NUMBERS @ 13 BAHT = 988B)
+        // Win Rate: 1 - (0.62 * 0.62) = 61.56%!
+        // Every single hit yields 13 * 90 = 1,170 Baht (+182 Baht net profit)!
+        // ============================================================
+        document.getElementById('winRateBadge').textContent = 'โอกาสถูกรางวัล 61.56% (สูงสุดในงบ 1,000฿)';
+        document.getElementById('costBadge').textContent = 'ใช้ทุน 988 บาท (เหลือทอน 12฿)';
+        document.getElementById('bottomSummaryTitle').textContent = '38 เลข · ซื้อราคาเดียว (บน 13฿ + ล่าง 13฿)';
+        document.getElementById('bottomBarTotal').textContent = '988';
 
-      const costG1 = g1Count * 2 * priceG1; // 92
-      const costG2 = g2Count * 2 * priceG2; // 336
-      const costG3 = g3Count * 2 * priceG3; // 572
-      const totalCost = costG1 + costG2 + costG3; // 1,000
-
-      // Top Banner & Bottom Bar
-      document.getElementById('bannerDigits').textContent = `เด่น ${m1} - ${m2}`;
-      document.getElementById('bannerSubDigits').textContent = `/ รอง ${s1} - ${s2}`;
-      document.getElementById('bannerTotalCost').textContent = totalCost.toLocaleString();
-      document.getElementById('bottomBarTotal').textContent = totalCost.toLocaleString();
-      document.getElementById('subSelectedLabel').textContent = `รอง ${s1} - ${s2}`;
-      document.getElementById('faqDoubleDigits').textContent = `${m1}${m1}, ${m2}${m2}`;
-
-      const baseReturn = priceG3 * state.rate;
-      const coreNet = (priceG2 * state.rate) - totalCost;
-      const maxNet = (priceG1 * 2 * state.rate) - totalCost;
-
-      document.getElementById('bannerBaseReturn').textContent = `ได้คืน ${baseReturn.toLocaleString()}฿`;
-      document.getElementById('bannerCoreProfit').textContent = `กำไร ${coreNet >= 0 ? '+' : ''}${coreNet.toLocaleString()}฿`;
-      document.getElementById('bannerMaxProfit').textContent = `กำไร +${maxNet.toLocaleString()}฿`;
-
-      // ==========================================
-      // TAB 1: BEGINNER SUMMARY GUIDE (3 GROUPS)
-      // ==========================================
-      document.getElementById('directG1Count').textContent = g1Count;
-      document.getElementById('directG1Instruction').textContent = `ซื้อ "2 ตัวบน" ตัวละ ${priceG1} บาท และ "2 ตัวล่าง" ตัวละ ${priceG1} บาท`;
-      document.getElementById('directG1Numbers').innerHTML = portfolio.group1List.map(n => `
-        <span class="px-4 py-1.5 rounded-xl bg-crimson-600 text-white text-base font-extrabold shadow-sm">
-          ${n} <span class="text-xs font-medium opacity-90">(บน ${priceG1}฿ / ล่าง ${priceG1}฿)</span>
-        </span>
-      `).join('');
-      document.getElementById('directG1Math').textContent = `วิธีคิดเงิน: ${g1Count} ตัว × (บน ${priceG1}฿ + ล่าง ${priceG1}฿)`;
-      document.getElementById('directG1Cost').textContent = `ใช้เงิน ${costG1.toLocaleString()} บาท`;
-
-      document.getElementById('directG2Count').textContent = g2Count;
-      document.getElementById('directG2Instruction').textContent = `ซื้อ "2 ตัวบน" ตัวละ ${priceG2} บาท และ "2 ตัวล่าง" ตัวละ ${priceG2} บาท`;
-      document.getElementById('directG2Numbers').innerHTML = portfolio.group2List.map(n => `
-        <span class="py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-brass-500/50 text-center text-sm font-extrabold text-ink-900 dark:text-amber-300 shadow-sm">
-          ${n}
-        </span>
-      `).join('');
-      document.getElementById('directG2Math').textContent = `วิธีคิดเงิน: ${g2Count} ตัว × (บน ${priceG2}฿ + ล่าง ${priceG2}฿)`;
-      document.getElementById('directG2Cost').textContent = `ใช้เงิน ${costG2.toLocaleString()} บาท`;
-
-      document.getElementById('directG3Count').textContent = g3Count;
-      document.getElementById('directG3Instruction').textContent = `ซื้อ "2 ตัวบน" ตัวละ ${priceG3} บาท และ "2 ตัวล่าง" ตัวละ ${priceG3} บาท`;
-      document.getElementById('directG3Numbers').innerHTML = portfolio.group3List.map(n => `
-        <span class="py-1 rounded bg-white dark:bg-slate-900 border border-paper-300 dark:border-slate-700 text-center text-xs font-bold text-ink-800 dark:text-slate-300">
-          ${n}
-        </span>
-      `).join('');
-      document.getElementById('directG3Math').textContent = `วิธีคิดเงิน: ${g3Count} ตัว × (บน ${priceG3}฿ + ล่าง ${priceG3}฿)`;
-      document.getElementById('directG3Cost').textContent = `ใช้เงิน ${costG3.toLocaleString()} บาท`;
-
-      document.getElementById('directSumBreakdown').textContent = `${costG1} + ${costG2} + ${costG3}`;
-      document.getElementById('directSumTotal').textContent = `= ${totalCost.toLocaleString()} บาทพอดีเป๊ะ`;
-
-      // Shortcut Mode descriptions
-      const layer1Cost = portfolio.baseList.length * 2 * state.bet1;
-      const layer2Cost = portfolio.coreList.length * 2 * state.bet2;
-      const layer3Cost = portfolio.collisionList.length * 2 * state.bet3;
-      document.getElementById('shortcutCost1').textContent = `เป็นเงิน ${layer1Cost.toLocaleString()} บาท`;
-      document.getElementById('shortcutStep1Desc').innerHTML = `กดเลือก <strong>"2 ตัวบน" + "2 ตัวล่าง"</strong> แล้วกดปุ่มตัวช่วย <strong>"รูด 19 ประตู"</strong> จิ้มเลข <strong>${m1}</strong> และเลข <strong>${m2}</strong> (จะได้ ${portfolio.baseList.length} ตัว) ใส่ราคาตัวละ <strong>${state.bet1} บาท</strong>`;
-      document.getElementById('shortcutCost2').textContent = `เป็นเงิน ${layer2Cost.toLocaleString()} บาท`;
-      document.getElementById('shortcutStep2Desc').innerHTML = `ตั้งโพยใหม่ เลือก <strong>"2 ตัวบน" + "2 ตัวล่าง"</strong> แล้วจิ้มเลขชุดเน้น <strong>${portfolio.coreList.length} ตัว</strong> ด้านล่างนี้ ใส่ราคาเพิ่มอีกตัวละ <strong>${state.bet2} บาท</strong>`;
-      document.getElementById('shortcutTier2List').textContent = portfolio.coreList.join('   ');
-      document.getElementById('shortcutCost3').textContent = `เป็นเงิน ${layer3Cost.toLocaleString()} บาท`;
-      document.getElementById('shortcutStep3Desc').innerHTML = `จิ้มเลขคู่เอก <strong>${portfolio.collisionList.length} ตัว</strong> ด้านล่างนี้ทั้งบนและล่าง ใส่ราคาเพิ่มอีกตัวละ <strong>${state.bet3} บาท</strong>`;
-      document.getElementById('shortcutTier3List').textContent = portfolio.collisionList.join('   ');
-
-      // Plain-Language Examples Box
-      document.getElementById('exampleRateText').textContent = state.rate;
-      document.getElementById('exampleTotalText').textContent = totalCost.toLocaleString();
-
-      const exG1 = portfolio.group1List[0] || '47';
-      const exG2 = portfolio.group2List[0] || '42';
-      const exG3 = portfolio.group3List[0] || '04';
-
-      const winG1Reward = priceG1 * state.rate;
-      const winG1Net = winG1Reward - totalCost;
-      const winG2Reward = priceG2 * state.rate;
-      const winG2Net = winG2Reward - totalCost;
-      const winG3Reward = priceG3 * state.rate;
-      const winG3Net = winG3Reward - totalCost;
-      const winBothReward = (priceG2 + priceG3) * state.rate;
-      const winBothNet = winBothReward - totalCost;
-
-      document.getElementById('plainExamplesBox').innerHTML = `
-        <div class="p-3 rounded-xl bg-crimson-50/70 dark:bg-rose-950/30 border border-crimson-600/20 flex items-center justify-between gap-2">
-          <div>
-            <span class="font-extrabold text-crimson-700 dark:text-rose-300">ถ้าหวยออกกองที่ 1 (เช่นออก ${exG1}) แค่ฝั่งเดียว:</span>
-            <p class="text-[11px] text-ink-600 dark:text-slate-400">เราซื้อไว้ ${priceG1} บาท × ${state.rate} = ได้เงินสด ${winG1Reward.toLocaleString()} บาท</p>
+        heroStatsGrid.innerHTML = `
+          <div class="bg-paper-50 dark:bg-slate-800/80 rounded-xl py-2 px-1.5 border border-paper-200 dark:border-slate-700/70">
+            <span class="block text-[10px] text-ink-500 dark:text-slate-400">จำนวนเลขที่ดัก</span>
+            <span class="text-xs sm:text-sm font-extrabold text-ink-900 dark:text-white">38 ตัว (บน-ล่าง)</span>
           </div>
-          <span class="font-extrabold text-emerald-700 dark:text-emerald-400 shrink-0">กำไรสุทธิ +${winG1Net.toLocaleString()}฿</span>
-        </div>
-
-        <div class="p-3 rounded-xl bg-brass-50/70 dark:bg-amber-950/25 border border-brass-500/25 flex items-center justify-between gap-2">
-          <div>
-            <span class="font-extrabold text-brass-700 dark:text-amber-300">ถ้าหวยออกกองที่ 2 (เช่นออก ${exG2}) แค่ฝั่งเดียว:</span>
-            <p class="text-[11px] text-ink-600 dark:text-slate-400">เราซื้อไว้ ${priceG2} บาท × ${state.rate} = ได้เงินสด ${winG2Reward.toLocaleString()} บาท</p>
+          <div class="bg-emerald-500/15 border border-emerald-500/30 rounded-xl py-2 px-1.5">
+            <span class="block text-[10px] text-emerald-700 dark:text-emerald-300">ถูก 1 ฝั่ง (ตัวไหนก็ได้)</span>
+            <span class="text-xs sm:text-sm font-extrabold text-emerald-600 dark:text-emerald-400">รับ 1,170฿ (+182฿)</span>
           </div>
-          <span class="font-extrabold text-emerald-700 dark:text-emerald-400 shrink-0">กำไรสุทธิ +${winG2Net.toLocaleString()}฿</span>
-        </div>
-
-        <div class="p-3 rounded-xl bg-paper-50 dark:bg-slate-800/60 border border-paper-200 dark:border-slate-700 flex items-center justify-between gap-2">
-          <div>
-            <span class="font-extrabold text-ink-900 dark:text-white">ถ้าหวยออกกองที่ 3 (เช่นออก ${exG3}) แค่ฝั่งเดียว:</span>
-            <p class="text-[11px] text-ink-600 dark:text-slate-400">เราซื้อไว้ ${priceG3} บาท × ${state.rate} = ได้เงินสด ${winG3Reward.toLocaleString()} บาท</p>
+          <div class="bg-amber-500/15 border border-amber-500/30 rounded-xl py-2 px-1.5">
+            <span class="block text-[10px] text-amber-700 dark:text-amber-300">ถูกทั้งบนและล่าง</span>
+            <span class="text-xs sm:text-sm font-extrabold text-amber-600 dark:text-amber-400">รับ 2,340฿ (+1,352฿)</span>
           </div>
-          <span class="font-bold text-ink-700 dark:text-slate-300 shrink-0">${winG3Net >= 0 ? `กำไร +${winG3Net}฿` : `ได้ทุนคืน (${winG3Reward}฿)`}</span>
-        </div>
+        `;
 
-        <div class="p-3 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-300 dark:border-emerald-800/60 flex items-center justify-between gap-2">
-          <div>
-            <span class="font-extrabold text-emerald-900 dark:text-emerald-300">ถ้าถูกทั้งบนและล่าง (เช่น บนออก ${exG2} ล่างออก ${exG3}):</span>
-            <p class="text-[11px] text-ink-600 dark:text-slate-400">รับควบ 2 รางวัล = ได้เงินสด ${winBothReward.toLocaleString()} บาท</p>
-          </div>
-          <span class="font-extrabold text-emerald-700 dark:text-emerald-400 shrink-0">กำไรสุทธิ +${winBothNet.toLocaleString()}฿</span>
-        </div>
-      `;
-
-      // ==========================================
-      // TAB 3: MONEY & 7 SCENARIOS (Matches Top Banner 100%)
-      // ==========================================
-      document.getElementById('step1CostText').textContent = `ตัวละ ${priceG3} บาท (บน ${priceG3} + ล่าง ${priceG3})`;
-      document.getElementById('step2CostText').textContent = `รวมเป็นตัวละ ${priceG2} บาท (บน ${priceG2} + ล่าง ${priceG2})`;
-      document.getElementById('step3CostText').textContent = `รวมเป็นตัวละ ${priceG1} บาท (บน ${priceG1} + ล่าง ${priceG1})`;
-      document.getElementById('scenarioRateBadge').textContent = `เรทจ่าย ${state.rate}`;
-
-      const scenarios = [
-        { title: '1. ถูกกองที่ 3 (เลขกันทุน) 1 ฝั่ง', sub: `ถูก ${priceG3} บาท × ${state.rate}`, hit: priceG3 },
-        { title: '2. ถูกกองที่ 2 (เลขตัวเน้น) 1 ฝั่ง', sub: `ถูก ${priceG2} บาท × ${state.rate}`, hit: priceG2 },
-        { title: '3. ถูกกองที่ 1 (เลขคู่เอก) 1 ฝั่ง', sub: `ถูก ${priceG1} บาท × ${state.rate}`, hit: priceG1 },
-        { title: '4. ถูกกองที่ 3 ทั้งบนและล่าง (2 เด้ง)', sub: `ถูก ${priceG3 * 2} บาท × ${state.rate}`, hit: priceG3 * 2 },
-        { title: '5. ถูกกองที่ 2 (1 ฝั่ง) + กองที่ 3 (1 ฝั่ง)', sub: `ถูก ${priceG2 + priceG3} บาท × ${state.rate}`, hit: priceG2 + priceG3 },
-        { title: '6. ถูกกองที่ 2 ทั้งบนและล่าง (2 เด้งตัวเน้น)', sub: `ถูก ${priceG2 * 2} บาท × ${state.rate}`, hit: priceG2 * 2 },
-        { title: '7. ถูกกองที่ 1 ทั้งบนและล่าง (แจ็คพอตสูงสุด)', sub: `ถูก ${priceG1 * 2} บาท × ${state.rate}`, hit: priceG1 * 2 }
-      ];
-
-      document.getElementById('scenarioList').innerHTML = scenarios.map(sc => {
-        const reward = sc.hit * state.rate;
-        const net = reward - totalCost;
-        const netBadge = net > 0
-          ? `<span class="text-emerald-700 dark:text-emerald-400 font-extrabold">กำไร +${net.toLocaleString()}฿</span>`
-          : (net === 0 ? `<span class="text-ink-600 dark:text-slate-300 font-bold">เท่าทุน 0฿</span>` : `<span class="text-amber-700 dark:text-amber-400 font-bold">${net.toLocaleString()}฿</span>`);
-        return `
-          <div class="p-3 rounded-xl bg-paper-50 dark:bg-slate-800/50 border border-paper-200 dark:border-slate-700/80 flex items-center justify-between gap-2">
-            <div>
-              <div class="text-xs font-extrabold text-ink-900 dark:text-white">${sc.title}</div>
-              <div class="text-[11px] text-ink-600 dark:text-slate-400">${sc.sub} = รับ ${reward.toLocaleString()}฿</div>
+        slipContainer.innerHTML = `
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-5 border-2 border-amber-500/60 shadow-md space-y-4">
+            <div class="flex items-start justify-between gap-2 border-b border-paper-200 dark:border-slate-800 pb-3">
+              <div>
+                <span class="inline-block px-2 py-0.5 rounded text-[11px] font-extrabold bg-amber-500 text-ink-950 mb-1">
+                  โพยชุดเดียวจบ · ไม่ต้องแยกกอง
+                </span>
+                <h3 class="text-base font-extrabold text-ink-900 dark:text-white tnum">
+                  ซื้อทั้ง 38 ตัวนี้: <span class="text-amber-600 dark:text-amber-400">บนตัวละ 13 บาท + ล่างตัวละ 13 บาท</span>
+                </h3>
+                <p class="text-xs text-ink-600 dark:text-slate-400 mt-0.5 tnum">
+                  คัดจากเลขเด่นสมดุล (${m1} กับ ${m2}) + คู่แต้มดี (${s1}${s2}, ${s2}${s1}) · ออกตัวไหนก็ได้กำไรทันที!
+                </p>
+              </div>
+              <button type="button" id="copySimpleNumsBtn" class="cursor-pointer min-h-[40px] px-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-ink-950 text-xs font-extrabold shrink-0 active:scale-95 transition-transform">
+                คัดลอกแต่ตัวเลข
+              </button>
             </div>
-            <div class="text-right text-sm shrink-0">${netBadge}</div>
+
+            <!-- 38 Numbers Grid -->
+            <div class="grid grid-cols-6 sm:grid-cols-8 gap-2 tnum">
+              ${portfolio.simple38List.map(n => `
+                <span class="py-2 rounded-xl bg-paper-50 dark:bg-slate-800 border border-paper-300 dark:border-slate-700 text-center text-sm font-extrabold text-ink-900 dark:text-white shadow-sm">
+                  ${n}
+                </span>
+              `).join('')}
+            </div>
+
+            <!-- Ready-to-Say Message Box for Complete Beginners -->
+            <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-1.5 text-xs">
+              <div class="font-extrabold text-emerald-700 dark:text-emerald-300">
+                วิธีบอกคนขายหวย (หรือวิธีคีย์ในเว็บ):
+              </div>
+              <p class="text-ink-800 dark:text-slate-200 leading-relaxed">
+                "ซื้อ <strong>2 ตัวบน ตัวละ 13 บาท</strong> และ <strong>2 ตัวล่าง ตัวละ 13 บาท</strong> ทั้งหมด 38 ตัวตามรายการนี้ครับ (รวมเป็นเงิน <strong>988 บาท</strong>)"
+              </p>
+            </div>
+          </section>
+        `;
+
+        document.getElementById('copySimpleNumsBtn').addEventListener('click', () => {
+          copyToClipboard(portfolio.simple38List.join(' '), 'คัดลอกตัวเลขทั้ง 38 ตัวเรียบร้อยแล้ว');
+        });
+
+      } else {
+        // ============================================================
+        // MODE 2: 3 GROUPS (36 NUMBERS: 23B / 21B / 11B = 1,000B)
+        // Win Rate: 59.04% | Profit on Core Hit: +890B to +3,140B
+        // ============================================================
+        document.getElementById('winRateBadge').textContent = 'โอกาสถูกรางวัล 59.04% (ลุ้นกำไรก้อนใหญ่)';
+        document.getElementById('costBadge').textContent = 'ใช้ทุน 1,000 บาทพอดี';
+        document.getElementById('bottomSummaryTitle').textContent = 'ครบ 3 กอง (36 เลข บน–ล่าง)';
+        document.getElementById('bottomBarTotal').textContent = '1,000';
+
+        heroStatsGrid.innerHTML = `
+          <div class="bg-paper-50 dark:bg-slate-800/80 rounded-xl py-2 px-1.5 border border-paper-200 dark:border-slate-700/70">
+            <span class="block text-[10px] text-ink-500 dark:text-slate-400">ถูกกองที่ 3 (กันทุน)</span>
+            <span class="text-xs sm:text-sm font-bold text-ink-900 dark:text-white">ได้คืน 990฿</span>
+          </div>
+          <div class="bg-amber-500/15 border border-amber-500/30 rounded-xl py-2 px-1.5">
+            <span class="block text-[10px] text-amber-700 dark:text-amber-300">ถูกกอง 1 หรือ 2</span>
+            <span class="text-xs sm:text-sm font-extrabold text-amber-600 dark:text-amber-400">กำไร +890 ถึง +1,070฿</span>
+          </div>
+          <div class="bg-emerald-500/15 border border-emerald-500/30 rounded-xl py-2 px-1.5">
+            <span class="block text-[10px] text-emerald-700 dark:text-emerald-300">เข้า 2 เด้งสูงสุด</span>
+            <span class="text-xs sm:text-sm font-extrabold text-emerald-600 dark:text-emerald-400">กำไร +3,140฿</span>
           </div>
         `;
-      }).join('');
 
-      // ==========================================
-      // TAB 4: 00-99 GRID & DRAW SIMULATOR
-      // ==========================================
-      const topNorm = pad2(state.simTop.replace(/\D/g, '') || '00');
-      const botNorm = pad2(state.simBottom.replace(/\D/g, '') || '00');
+        slipContainer.innerHTML = `
+          <!-- Group 1 -->
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border-2 border-rose-500/50 shadow-sm space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <span class="px-2 py-0.5 rounded text-[11px] font-extrabold bg-rose-600 text-white">กองที่ 1 · เลขคู่เอก (2 ตัว)</span>
+                <h3 class="text-sm font-extrabold text-ink-900 dark:text-white mt-1 tnum">
+                  ซื้อ บนตัวละ 23 บาท + ล่างตัวละ 23 บาท <span class="text-xs font-normal text-slate-400">(รวม 92฿)</span>
+                </h3>
+              </div>
+              <button type="button" data-copy-g="1" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-xs font-extrabold text-rose-600 dark:text-rose-300">
+                คัดลอก 2 ตัว
+              </button>
+            </div>
+            <div class="flex flex-wrap gap-2 tnum">
+              ${portfolio.group1List.map(n => `
+                <span class="px-4 py-1.5 rounded-xl bg-rose-600 text-white text-base font-extrabold">${n}</span>
+              `).join('')}
+            </div>
+          </section>
 
-      const gridEl = document.getElementById('heatmapGrid');
-      let gridHtml = '';
-      for (let i = 0; i < 100; i++) {
-        const numStr = pad2(i);
-        const isCol = portfolio.collisionSet.has(numStr);
-        const isCore = portfolio.coreLookup.has(numStr);
-        const isBase = portfolio.baseSet.has(numStr);
-        const isSimHit = (numStr === topNorm || numStr === botNorm);
+          <!-- Group 2 -->
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border-2 border-amber-500/50 shadow-sm space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <span class="px-2 py-0.5 rounded text-[11px] font-extrabold bg-amber-500 text-ink-950">กองที่ 2 · เลขตัวเน้น (8 ตัว)</span>
+                <h3 class="text-sm font-extrabold text-ink-900 dark:text-white mt-1 tnum">
+                  ซื้อ บนตัวละ 21 บาท + ล่างตัวละ 21 บาท <span class="text-xs font-normal text-slate-400">(รวม 336฿)</span>
+                </h3>
+              </div>
+              <button type="button" data-copy-g="2" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-amber-500/15 border border-amber-500/40 text-xs font-extrabold text-amber-600 dark:text-amber-300">
+                คัดลอก 8 ตัว
+              </button>
+            </div>
+            <div class="grid grid-cols-4 sm:grid-cols-8 gap-2 tnum">
+              ${portfolio.group2List.map(n => `
+                <span class="py-1.5 rounded-lg bg-paper-50 dark:bg-slate-800 border border-amber-500/50 text-center text-sm font-extrabold text-ink-900 dark:text-amber-300">${n}</span>
+              `).join('')}
+            </div>
+          </section>
 
-        let cls = 'bg-paper-50 dark:bg-slate-800/40 text-ink-500/40 dark:text-slate-600';
-        if (isCol) cls = 'bg-crimson-600 text-white font-extrabold shadow-sm';
-        else if (isCore) cls = 'bg-amber-500 text-ink-950 font-extrabold shadow-sm';
-        else if (isBase) cls = 'bg-ink-900 dark:bg-blue-600 text-white font-bold';
-
-        const ringCls = isSimHit ? 'ring-2 ring-emerald-400 scale-105 z-10' : '';
-
-        gridHtml += `
-          <button type="button" data-grid-num="${numStr}" class="cursor-pointer min-h-[36px] rounded-md text-xs flex items-center justify-center active:scale-90 transition-transform ${cls} ${ringCls}">
-            ${numStr}
-          </button>
+          <!-- Group 3 -->
+          <section class="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-paper-300 dark:border-slate-700 shadow-sm space-y-3">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <span class="px-2 py-0.5 rounded text-[11px] font-extrabold bg-slate-700 text-white">กองที่ 3 · เลขกันทุน (26 ตัว)</span>
+                <h3 class="text-sm font-extrabold text-ink-900 dark:text-white mt-1 tnum">
+                  ซื้อ บนตัวละ 11 บาท + ล่างตัวละ 11 บาท <span class="text-xs font-normal text-slate-400">(รวม 572฿)</span>
+                </h3>
+              </div>
+              <button type="button" data-copy-g="3" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-paper-100 dark:bg-slate-800 border border-paper-300 dark:border-slate-600 text-xs font-extrabold text-ink-900 dark:text-slate-200">
+                คัดลอก 26 ตัว
+              </button>
+            </div>
+            <div class="grid grid-cols-6 sm:grid-cols-9 gap-1.5 tnum">
+              ${portfolio.group3List.map(n => `
+                <span class="py-1 rounded bg-paper-50 dark:bg-slate-800 border border-paper-200 dark:border-slate-700 text-center text-xs font-bold text-ink-800 dark:text-slate-300">${n}</span>
+              `).join('')}
+            </div>
+          </section>
         `;
-      }
-      gridEl.innerHTML = gridHtml;
 
-      gridEl.querySelectorAll('[data-grid-num]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const n = btn.getAttribute('data-grid-num');
-          if (state.activeSimTarget === 'top') {
-            state.simTop = n;
-            document.getElementById('simTopInput').value = n;
-            setSimActiveTarget('bottom');
-          } else {
-            state.simBottom = n;
-            document.getElementById('simBottomInput').value = n;
-            setSimActiveTarget('top');
-          }
-          renderAll();
+        document.querySelectorAll('.copy-g-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const g = btn.getAttribute('data-copy-g');
+            const list = g === '1' ? portfolio.group1List : (g === '2' ? portfolio.group2List : portfolio.group3List);
+            copyToClipboard(list.join(' '), `คัดลอกเลขกองที่ ${g} (${list.length} ตัว) แล้ว`);
+          });
         });
-      });
-
-      renderSimulator(portfolio, totalCost);
-    }
-
-    function setSimActiveTarget(target) {
-      state.activeSimTarget = target;
-      const topBox = document.getElementById('simTopBox');
-      const botBox = document.getElementById('simBottomBox');
-      const topLabel = topBox.querySelector('label');
-      const botLabel = botBox.querySelector('label');
-
-      if (target === 'top') {
-        topBox.className = 'p-3 rounded-xl bg-paper-50 dark:bg-slate-800 border-2 border-ink-900 dark:border-amber-400 text-center cursor-pointer transition-colors';
-        botBox.className = 'p-3 rounded-xl bg-paper-50 dark:bg-slate-800 border border-paper-200 dark:border-slate-700 text-center cursor-pointer transition-colors';
-        topLabel.textContent = 'รางวัล 2 ตัวบน (กำลังเลือก)';
-        topLabel.className = 'block text-[11px] font-extrabold text-ink-900 dark:text-amber-400 mb-1';
-        botLabel.textContent = 'รางวัล 2 ตัวล่าง';
-        botLabel.className = 'block text-[11px] font-bold text-ink-600 dark:text-slate-400 mb-1';
-      } else {
-        botBox.className = 'p-3 rounded-xl bg-paper-50 dark:bg-slate-800 border-2 border-ink-900 dark:border-emerald-400 text-center cursor-pointer transition-colors';
-        topBox.className = 'p-3 rounded-xl bg-paper-50 dark:bg-slate-800 border border-paper-200 dark:border-slate-700 text-center cursor-pointer transition-colors';
-        botLabel.textContent = 'รางวัล 2 ตัวล่าง (กำลังเลือก)';
-        botLabel.className = 'block text-[11px] font-extrabold text-ink-900 dark:text-emerald-400 mb-1';
-        topLabel.textContent = 'รางวัล 2 ตัวบน';
-        topLabel.className = 'block text-[11px] font-bold text-ink-600 dark:text-slate-400 mb-1';
       }
+
+      renderSimulator(portfolio);
     }
 
-    function renderSimulator(portfolio, totalCost) {
+    function renderSimulator(portfolio) {
       const topStr = pad2(state.simTop.replace(/\D/g, '') || '00');
       const botStr = pad2(state.simBottom.replace(/\D/g, '') || '00');
 
-      const topBet = getBetForNumber(topStr, portfolio);
-      const botBet = getBetForNumber(botStr, portfolio);
+      let topBet = 0;
+      let botBet = 0;
+      let totalCost = 988;
+
+      if (state.mode === 'simple') {
+        totalCost = 988;
+        if (portfolio.simple38Set.has(topStr)) topBet = 13;
+        if (portfolio.simple38Set.has(botStr)) botBet = 13;
+      } else {
+        totalCost = 1000;
+        const get3G = (num) => {
+          if (portfolio.collisionSet.has(num)) return 23;
+          if (portfolio.coreLookup.has(num)) return 21;
+          if (portfolio.baseSet.has(num)) return 11;
+          return 0;
+        };
+        topBet = get3G(topStr);
+        botBet = get3G(botStr);
+      }
 
       const topReward = topBet * state.rate;
       const botReward = botBet * state.rate;
       const totalReward = topReward + botReward;
       const net = totalReward - totalCost;
 
-      function labelFor(numStr) {
-        if (portfolio.collisionSet.has(numStr)) return '<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-crimson-600 text-white">ถูกกองที่ 1 (คู่เอก)</span>';
-        if (portfolio.coreLookup.has(numStr)) return '<span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-amber-400 text-ink-950">ถูกกองที่ 2 (ตัวเน้น)</span>';
-        if (portfolio.baseSet.has(numStr)) return '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white">ถูกกองที่ 3 (กันทุน)</span>';
-        return '<span class="px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400">ไม่ถูก</span>';
-      }
-
       document.getElementById('simResultBox').innerHTML = `
-        <div class="flex items-center justify-between text-xs border-b border-slate-800 pb-2">
-          <div class="flex items-center gap-2">
-            <span class="text-slate-400">บน ${topStr}:</span>
-            ${labelFor(topStr)}
-          </div>
-          <span class="font-bold">${topBet > 0 ? `ได้เงิน ${topReward.toLocaleString()}฿` : '0฿'}</span>
+        <div class="flex items-center justify-between border-b border-slate-800 pb-1.5">
+          <span>2 ตัวบนออก <strong>${topStr}</strong>:</span>
+          <span class="font-bold ${topBet > 0 ? 'text-emerald-400' : 'text-slate-400'}">${topBet > 0 ? `ถูก! ได้เงิน ${topReward.toLocaleString()}฿` : 'ไม่ถูก (0฿)'}</span>
         </div>
-        <div class="flex items-center justify-between text-xs border-b border-slate-800 pb-2">
-          <div class="flex items-center gap-2">
-            <span class="text-slate-400">ล่าง ${botStr}:</span>
-            ${labelFor(botStr)}
-          </div>
-          <span class="font-bold">${botBet > 0 ? `ได้เงิน ${botReward.toLocaleString()}฿` : '0฿'}</span>
+        <div class="flex items-center justify-between border-b border-slate-800 pb-1.5">
+          <span>2 ตัวล่างออก <strong>${botStr}</strong>:</span>
+          <span class="font-bold ${botBet > 0 ? 'text-emerald-400' : 'text-slate-400'}">${botBet > 0 ? `ถูก! ได้เงิน ${botReward.toLocaleString()}฿` : 'ไม่ถูก (0฿)'}</span>
         </div>
-        <div class="flex items-center justify-between pt-1">
-          <span class="text-xs text-slate-300">หักทุน ${totalCost.toLocaleString()}฿ เหลือ:</span>
-          <span class="text-base font-extrabold ${net > 0 ? 'text-emerald-400' : (net === 0 ? 'text-amber-300' : 'text-rose-400')}">
-            ${net >= 0 ? `กำไรสุทธิ +${net.toLocaleString()}฿` : `ขาดทุน ${net.toLocaleString()}฿`}
+        <div class="flex items-center justify-between pt-0.5 text-sm font-extrabold">
+          <span>หักทุน ${totalCost.toLocaleString()}฿ เหลือ:</span>
+          <span class="${net > 0 ? 'text-emerald-400' : (net === 0 ? 'text-amber-300' : 'text-rose-400')}">
+            ${net >= 0 ? `กำไรสุทธิ +${net.toLocaleString()} บาท` : `ขาดทุน ${net.toLocaleString()} บาท`}
           </span>
         </div>
       `;
+    }
+
+    // Trigger AI Smart Randomize (Guaranteed new balanced set every tap)
+    function triggerSmartRandom() {
+      const dice = document.getElementById('diceIcon');
+      dice.classList.add('rotate-180');
+      setTimeout(() => dice.classList.remove('rotate-180'), 300);
+
+      const low = [0, 1, 2, 3, 4];
+      const prevMainKey = getSortedMain().join('-');
+      let m1, m2;
+      for (let attempt = 0; attempt < 12; attempt++) {
+        m1 = low[Math.floor(Math.random() * low.length)];
+        const high = [5, 6, 7, 8, 9].filter(d => (d % 2) !== (m1 % 2));
+        m2 = high[Math.floor(Math.random() * high.length)];
+        if (`${m1}-${m2}` !== prevMainKey) break;
+      }
+
+      const remLow = low.filter(d => d !== m1 && hasGoodSum(d, [m1, m2]));
+      const remHigh = [5, 6, 7, 8, 9].filter(d => d !== m2 && hasGoodSum(d, [m1, m2]));
+      const s1Pool = remLow.length > 0 ? remLow : low.filter(d => d !== m1);
+      const s2Pool = remHigh.length > 0 ? remHigh : [5, 6, 7, 8, 9].filter(d => d !== m2);
+
+      const s1 = s1Pool[Math.floor(Math.random() * s1Pool.length)];
+      const s2 = s2Pool[Math.floor(Math.random() * s2Pool.length)];
+
+      state.mainDigits = [m1, m2];
+      state.subDigits = [s1, s2];
+      renderAll();
+      showToast(`สุ่มชุดเลขใหม่แล้ว (เด่น ${m1}-${m2}) พร้อมแทง!`);
     }
 
     function copyToClipboard(text, msg) {
@@ -1171,188 +683,57 @@
       }, 2200);
     }
 
-    // Tab Navigation
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        switchTab(btn.getAttribute('data-tab'));
-      });
+    // Bind Giant Random Button
+    document.getElementById('bigRandomBtn').addEventListener('click', triggerSmartRandom);
+
+    // Bind Style Mode Switcher
+    const styleSimpleBtn = document.getElementById('styleSimpleBtn');
+    const style3GroupBtn = document.getElementById('style3GroupBtn');
+
+    styleSimpleBtn.addEventListener('click', () => {
+      state.mode = 'simple';
+      styleSimpleBtn.className = 'cursor-pointer min-h-[42px] px-2 rounded-lg text-xs font-extrabold bg-white dark:bg-slate-800 text-ink-900 dark:text-amber-400 shadow-sm transition-all';
+      style3GroupBtn.className = 'cursor-pointer min-h-[42px] px-2 rounded-lg text-xs font-bold text-ink-600 dark:text-slate-400 transition-all';
+      renderAll();
     });
 
-    document.getElementById('jumpToPickBtn').addEventListener('click', () => switchTab('pick'));
-    document.getElementById('donePickBtn').addEventListener('click', () => switchTab('guide'));
-
-    // Mode Switcher inside Tab 1
-    const modeDirectBtn = document.getElementById('modeDirectBtn');
-    const modeShortcutBtn = document.getElementById('modeShortcutBtn');
-    const guideModeDirect = document.getElementById('guideModeDirect');
-    const guideModeShortcut = document.getElementById('guideModeShortcut');
-
-    modeDirectBtn.addEventListener('click', () => {
-      modeDirectBtn.className = 'cursor-pointer min-h-[38px] rounded-lg text-xs font-extrabold bg-ink-900 text-white dark:bg-amber-400 dark:text-ink-950 shadow-sm transition-all';
-      modeShortcutBtn.className = 'cursor-pointer min-h-[38px] rounded-lg text-xs font-bold text-ink-600 dark:text-slate-300 transition-all';
-      guideModeDirect.classList.remove('hidden');
-      guideModeShortcut.classList.add('hidden');
+    style3GroupBtn.addEventListener('click', () => {
+      state.mode = '3group';
+      style3GroupBtn.className = 'cursor-pointer min-h-[42px] px-2 rounded-lg text-xs font-extrabold bg-white dark:bg-slate-800 text-ink-900 dark:text-amber-400 shadow-sm transition-all';
+      styleSimpleBtn.className = 'cursor-pointer min-h-[42px] px-2 rounded-lg text-xs font-bold text-ink-600 dark:text-slate-400 transition-all';
+      renderAll();
     });
 
-    modeShortcutBtn.addEventListener('click', () => {
-      modeShortcutBtn.className = 'cursor-pointer min-h-[38px] rounded-lg text-xs font-extrabold bg-ink-900 text-white dark:bg-amber-400 dark:text-ink-950 shadow-sm transition-all';
-      modeDirectBtn.className = 'cursor-pointer min-h-[38px] rounded-lg text-xs font-bold text-ink-600 dark:text-slate-300 transition-all';
-      guideModeShortcut.classList.remove('hidden');
-      guideModeDirect.classList.add('hidden');
-    });
-
-    // Copy Non-overlapping Group Buttons
-    document.querySelectorAll('.copy-group-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const group = btn.getAttribute('data-copy-group');
-        const portfolio = computePortfolio();
-        let list = [];
-        if (group === 'g1') list = portfolio.group1List;
-        if (group === 'g2') list = portfolio.group2List;
-        if (group === 'g3') list = portfolio.group3List;
-        copyToClipboard(list.join(' '), `คัดลอกเลข ${list.length} ตัวเรียบร้อยแล้ว`);
-      });
-    });
-
-    // Copy Shortcut Section Buttons
-    document.querySelectorAll('.copy-section-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-copy');
-        const portfolio = computePortfolio();
-        let list = [];
-        if (target === 'tier3') list = portfolio.collisionList;
-        if (target === 'tier2') list = portfolio.coreList;
-        if (target === 'tier1') list = portfolio.baseList;
-        copyToClipboard(list.join(' '), `คัดลอกชุดตัวเลข ${list.length} ตัวแล้ว`);
-      });
-    });
-
-    // Copy Full Beginner-Friendly Slip
+    // Copy Ready-to-Send Slip (Bottom Bar)
     document.getElementById('copyAllSlipBtn').addEventListener('click', () => {
       const portfolio = computePortfolio();
-      const [m1, m2] = getSortedMain();
-      const [s1, s2] = getSortedSub();
-      const priceG3 = state.bet1;
-      const priceG2 = state.bet1 + state.bet2;
-      const priceG1 = state.bet1 + state.bet2 + state.bet3;
-      const totalCost = (portfolio.group1List.length * 2 * priceG1) + (portfolio.group2List.length * 2 * priceG2) + (portfolio.group3List.length * 2 * priceG3);
-
-      const text = [
-        `ใบโพยเลขท้าย 2 ตัว บน–ล่าง (เด่น ${m1}-${m2} / รอง ${s1}-${s2})`,
-        `================================`,
-        `[กองที่ 1: เลขคู่เอก ${portfolio.group1List.length} ตัว]`,
-        `แทง 2 ตัวบน ตัวละ ${priceG1} บาท และ 2 ตัวล่าง ตัวละ ${priceG1} บาท:`,
-        portfolio.group1List.join(' '),
-        ``,
-        `[กองที่ 2: เลขตัวเน้น ${portfolio.group2List.length} ตัว]`,
-        `แทง 2 ตัวบน ตัวละ ${priceG2} บาท และ 2 ตัวล่าง ตัวละ ${priceG2} บาท:`,
-        portfolio.group2List.join(' '),
-        ``,
-        `[กองที่ 3: เลขกันทุน ${portfolio.group3List.length} ตัว]`,
-        `แทง 2 ตัวบน ตัวละ ${priceG3} บาท และ 2 ตัวล่าง ตัวละ ${priceG3} บาท:`,
-        portfolio.group3List.join(' '),
-        `================================`,
-        `รวมทั้งหมด 36 ตัว (บน+ล่าง) = เป็นเงิน ${totalCost.toLocaleString()} บาท`
-      ].join('\n');
-
-      copyToClipboard(text, 'คัดลอกใบโพยทั้ง 3 กองเรียบร้อยแล้ว!');
-    });
-
-    // Smart Pick (Balanced parity + low/high + golden sum 7..11 subDigits, guaranteed new set on every click)
-    function triggerSmartRandom() {
-      const low = [0, 1, 2, 3, 4];
-      const prevMainKey = getSortedMain().join('-');
-      let m1, m2;
-      for (let attempt = 0; attempt < 10; attempt++) {
-        m1 = low[Math.floor(Math.random() * low.length)];
-        const high = [5, 6, 7, 8, 9].filter(d => (d % 2) !== (m1 % 2));
-        m2 = high[Math.floor(Math.random() * high.length)];
-        if (`${m1}-${m2}` !== prevMainKey) break;
+      if (state.mode === 'simple') {
+        const text = [
+          `ซื้อเลขท้าย 2 ตัว (บน 13 บาท x ล่าง 13 บาท) รวม 38 ตัว:`,
+          portfolio.simple38List.join(' '),
+          `--------------------------------`,
+          `รวมเป็นเงิน 988 บาท`
+        ].join('\n');
+        copyToClipboard(text, 'คัดลอกโพยพร้อมส่งให้คนขายแล้ว!');
+      } else {
+        const text = [
+          `ใบโพยเลขท้าย 2 ตัว บน–ล่าง (รวม 36 ตัว):`,
+          `1) ซื้อ บน 23 บาท x ล่าง 23 บาท (2 ตัว):`,
+          portfolio.group1List.join(' '),
+          ``,
+          `2) ซื้อ บน 21 บาท x ล่าง 21 บาท (8 ตัว):`,
+          portfolio.group2List.join(' '),
+          ``,
+          `3) ซื้อ บน 11 บาท x ล่าง 11 บาท (26 ตัว):`,
+          portfolio.group3List.join(' '),
+          `--------------------------------`,
+          `รวมเป็นเงิน 1,000 บาท`
+        ].join('\n');
+        copyToClipboard(text, 'คัดลอกโพยทั้ง 3 กองพร้อมส่งแล้ว!');
       }
-
-      const remLow = low.filter(d => d !== m1 && hasGoodSum(d, [m1, m2]));
-      const remHigh = [5, 6, 7, 8, 9].filter(d => d !== m2 && hasGoodSum(d, [m1, m2]));
-      const fallbackLow = low.filter(d => d !== m1);
-      const fallbackHigh = [5, 6, 7, 8, 9].filter(d => d !== m2);
-
-      const s1Pool = remLow.length > 0 ? remLow : fallbackLow;
-      const s2Pool = remHigh.length > 0 ? remHigh : fallbackHigh;
-
-      const s1 = s1Pool[Math.floor(Math.random() * s1Pool.length)];
-      const s2 = s2Pool[Math.floor(Math.random() * s2Pool.length)];
-
-      state.mainDigits = [m1, m2];
-      state.subDigits = [s1, s2];
-      renderAll();
-      showToast(`สุ่มชุดใหม่พร้อมแทง: เด่น ${m1}-${m2} / รอง ${s1}-${s2}`);
-    }
-
-    document.getElementById('smartPickBtn').addEventListener('click', triggerSmartRandom);
-    document.getElementById('heroRandomBtn').addEventListener('click', triggerSmartRandom);
-
-    // Steppers
-    document.querySelectorAll('.step-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const field = btn.getAttribute('data-step');
-        const delta = Number(btn.getAttribute('data-delta'));
-        const minVal = field === 'bet1' ? 1 : 0;
-        state[field] = Math.max(minVal, Math.min(500, state[field] + delta));
-        document.getElementById(field === 'bet1' ? 'betLayer1' : (field === 'bet2' ? 'betLayer2' : 'betLayer3')).value = state[field];
-        renderAll();
-      });
     });
 
-    ['betLayer1', 'betLayer2', 'betLayer3'].forEach((id, idx) => {
-      document.getElementById(id).addEventListener('input', e => {
-        const key = `bet${idx + 1}`;
-        const minVal = idx === 0 ? 1 : 0;
-        state[key] = Math.max(minVal, Math.min(500, Math.round(Number(e.target.value) || 0)));
-        renderAll();
-      });
-    });
-
-    // Rate Selector
-    document.querySelectorAll('.rate-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        state.rate = Number(btn.getAttribute('data-rate'));
-        document.querySelectorAll('.rate-btn').forEach(b => {
-          b.className = 'rate-btn cursor-pointer min-h-[44px] rounded-xl text-xs font-bold border border-paper-300 dark:border-slate-700 bg-paper-50 dark:bg-slate-800 text-ink-800 dark:text-slate-300 transition-colors';
-        });
-        btn.className = 'rate-btn cursor-pointer min-h-[44px] rounded-xl text-xs font-extrabold border-2 border-ink-900 bg-ink-900 text-white dark:border-amber-400 dark:bg-amber-400 dark:text-ink-950 transition-colors';
-        renderAll();
-      });
-    });
-
-    // Reset Default
-    document.getElementById('resetDefaultBtn').addEventListener('click', () => {
-      state = {
-        mainDigits: [4, 7],
-        subDigits: [2, 5],
-        rate: 90,
-        bet1: 11,
-        bet2: 10,
-        bet3: 2,
-        simTop: '47',
-        simBottom: '18',
-        activeSimTarget: 'top'
-      };
-      document.getElementById('betLayer1').value = 11;
-      document.getElementById('betLayer2').value = 10;
-      document.getElementById('betLayer3').value = 2;
-      document.getElementById('simTopInput').value = '47';
-      document.getElementById('simBottomInput').value = '18';
-      setSimActiveTarget('top');
-      renderAll();
-      showToast('คืนค่าเริ่มต้น 1,000 บาทแล้ว');
-    });
-
-    // Simulator Box Selection & Inputs
-    document.getElementById('simTopBox').addEventListener('click', () => setSimActiveTarget('top'));
-    document.getElementById('simBottomBox').addEventListener('click', () => setSimActiveTarget('bottom'));
-
-    document.getElementById('simTopInput').addEventListener('focus', () => setSimActiveTarget('top'));
-    document.getElementById('simBottomInput').addEventListener('focus', () => setSimActiveTarget('bottom'));
-
+    // Simulator Inputs
     document.getElementById('simTopInput').addEventListener('input', e => {
       state.simTop = e.target.value;
       renderAll();
