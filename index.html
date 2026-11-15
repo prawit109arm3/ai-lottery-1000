@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0B0E11" />
   <title>PRAWIT QUANT — ระบบสุ่มชุดหวย AI งบ 1,000 บาท (Pro Terminal)</title>
-  <!-- Google Fonts: Sarabun + JetBrains Mono for Ticker/Orderbook numbers -->
+  <!-- Google Fonts: Sarabun + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700;800&family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons (https://lucide.dev) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -62,17 +65,16 @@
     .safe-bar {
       padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
     }
-    /* Subtle Exchange Grid Background */
     .terminal-grid {
-      background-image: linear-gradient(to right, rgba(43, 49, 57, 0.18) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(43, 49, 57, 0.18) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgba(43, 49, 57, 0.16) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(43, 49, 57, 0.16) 1px, transparent 1px);
       background-size: 24px 24px;
     }
     .gold-glow {
-      box-shadow: 0 0 25px -5px rgba(252, 213, 53, 0.35);
+      box-shadow: 0 0 24px -5px rgba(252, 213, 53, 0.35);
     }
     .green-glow {
-      box-shadow: 0 0 20px -6px rgba(14, 203, 129, 0.25);
+      box-shadow: 0 0 20px -6px rgba(14, 203, 129, 0.3);
     }
   </style>
 </head>
@@ -82,43 +84,38 @@
   <header class="sticky top-0 z-30 bg-white/95 dark:bg-ex-card/95 backdrop-blur-md border-b border-slate-200 dark:border-ex-border">
     <div class="max-w-lg mx-auto px-4 h-14 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <!-- Exchange Brand Emblem -->
-        <div class="w-9 h-9 rounded-lg bg-ex-gold text-ex-bg flex items-center justify-center font-extrabold text-sm tnum shadow-sm">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
+        <!-- Simple Icons Official Binance-style Diamond Emblem -->
+        <div class="w-9 h-9 rounded-xl bg-ex-gold/15 border border-ex-gold/40 flex items-center justify-center shadow-sm">
+          <img src="https://cdn.simpleicons.org/binance/FCD535" alt="Quant Exchange Logo" class="w-5 h-5" width="20" height="20" />
         </div>
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base font-extrabold tracking-tight text-slate-900 dark:text-ex-text leading-none tnum">
               LOTTO<span class="text-amber-500 dark:text-ex-gold">/THB</span>
             </h1>
-            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/15 text-amber-600 dark:bg-ex-gold/15 dark:text-ex-gold border border-amber-500/30 dark:border-ex-gold/30 tnum">
-              PORT 1,000฿
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-amber-500/15 text-amber-600 dark:bg-ex-gold/15 dark:text-ex-gold border border-amber-500/30 dark:border-ex-gold/30 tnum">
+              PERP 1,000฿
             </span>
           </div>
           <div class="flex items-center gap-1.5 mt-1">
             <span class="w-1.5 h-1.5 rounded-full bg-ex-green animate-pulse"></span>
             <p class="text-[11px] text-slate-500 dark:text-ex-muted font-medium">
-              AI Quant Signal · กดสุ่มแล้วก๊อปปี้ส่งได้ทันที
+              AI Quant Terminal · กดสุ่มแล้วก๊อปปี้ส่งได้ทันที
             </p>
           </div>
         </div>
       </div>
 
       <div class="flex items-center gap-2">
-        <div class="hidden sm:flex flex-col items-end mr-1 tnum">
-          <span class="text-[10px] text-slate-400 dark:text-ex-muted">PAYOUT RATE</span>
-          <span class="text-xs font-bold text-ex-green">90.0x</span>
+        <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-ex-elevated border border-slate-200 dark:border-ex-border tnum">
+          <img src="https://cdn.simpleicons.org/tradingview/0ECB81" alt="" aria-hidden="true" class="w-3.5 h-3.5" width="14" height="14" />
+          <span class="text-[10px] text-slate-500 dark:text-ex-muted font-bold">PAYOUT</span>
+          <span class="text-xs font-extrabold text-ex-green">90x</span>
         </div>
 
         <button id="themeToggleBtn" type="button" aria-label="สลับโหมดสีหน้าจอ" class="cursor-pointer w-9 h-9 rounded-lg border border-slate-200 dark:border-ex-border bg-slate-50 dark:bg-ex-elevated flex items-center justify-center text-slate-700 dark:text-ex-muted hover:text-slate-900 dark:hover:text-ex-text active:opacity-75 transition-colors">
-          <svg class="w-4 h-4 hidden dark:block text-ex-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <svg class="w-4 h-4 block dark:hidden text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-ex-gold"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
         </button>
       </div>
     </div>
@@ -135,10 +132,11 @@
       <div class="flex items-center justify-between gap-2 pb-3 border-b border-slate-200 dark:border-ex-line">
         <div>
           <div class="flex items-center gap-1.5">
+            <i data-lucide="activity" class="w-3.5 h-3.5 text-ex-green" aria-hidden="true"></i>
             <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-ex-muted">WIN PROBABILITY</span>
-            <span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-ex-green/15 text-ex-green border border-ex-green/30 tnum">MAX EDGE</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-ex-green/15 text-ex-green border border-ex-green/30 tnum">MAX EDGE</span>
           </div>
-          <div class="flex items-baseline gap-2 mt-0.5">
+          <div class="flex items-baseline gap-2 mt-1">
             <span id="winRateBig" class="text-2xl sm:text-3xl font-extrabold text-ex-green tnum tracking-tight">61.56%</span>
             <span id="winRateBadge" class="text-xs font-semibold text-slate-500 dark:text-ex-muted">โอกาสถูกสูงสุดในงบ 1,000฿</span>
           </div>
@@ -146,16 +144,20 @@
 
         <div class="text-right">
           <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-ex-muted block">MARGIN USED</span>
-          <span id="costBadge" class="text-sm font-extrabold text-slate-900 dark:text-ex-text tnum bg-slate-100 dark:bg-ex-elevated px-2.5 py-1 rounded-lg border border-slate-200 dark:border-ex-border inline-block mt-0.5">
-            988 THB
+          <span id="costBadge" class="text-sm font-extrabold text-slate-900 dark:text-ex-text tnum bg-slate-100 dark:bg-ex-elevated px-2.5 py-1 rounded-lg border border-slate-200 dark:border-ex-border inline-flex items-center gap-1 mt-1">
+            <i data-lucide="wallet" class="w-3.5 h-3.5 text-ex-gold" aria-hidden="true"></i>
+            <span>988 THB</span>
           </span>
         </div>
       </div>
 
-      <!-- Mode Switcher (Exchange Order Type Tabs: Spot Single-Price vs Leverage 3-Tier) -->
+      <!-- Mode Switcher (Exchange Order Type Tabs) -->
       <div class="space-y-1.5">
         <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-ex-muted font-semibold px-0.5">
-          <span>ORDER STRATEGY (เลือกรูปแบบโพย)</span>
+          <span class="inline-flex items-center gap-1">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-ex-gold" aria-hidden="true"></i>
+            <span>ORDER STRATEGY (เลือกรูปแบบโพย)</span>
+          </span>
           <span class="tnum text-amber-500 dark:text-ex-gold">2D TOP &amp; BOTTOM</span>
         </div>
         <div class="grid grid-cols-2 p-1 rounded-xl bg-slate-100 dark:bg-ex-bg border border-slate-200 dark:border-ex-border gap-1">
@@ -170,16 +172,12 @@
 
       <!-- GIANT BINANCE-GOLD RANDOMIZE / GENERATE SIGNAL BUTTON -->
       <button id="bigRandomBtn" type="button" class="gold-glow cursor-pointer w-full min-h-[56px] py-3.5 px-5 rounded-xl bg-ex-gold hover:bg-ex-goldHover text-ex-bg font-extrabold text-base flex items-center justify-center gap-2.5 active:scale-[0.98] transition-all">
-        <svg id="diceIcon" class="w-5 h-5 shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
+        <i id="diceIcon" data-lucide="dices" class="w-5 h-5 shrink-0 transition-transform duration-300" aria-hidden="true"></i>
         <span>กดสุ่มชุดเลขใหม่ (คัดตัวโอกาสออกสูงสุด)</span>
       </button>
 
-      <!-- 3 P&L Telemetry Cards (Exchange Position Summary) -->
-      <div id="heroStatsGrid" class="grid grid-cols-3 gap-2 pt-1 tnum">
-        <!-- Populated by JS -->
-      </div>
+      <!-- 3 P&L Telemetry Cards -->
+      <div id="heroStatsGrid" class="grid grid-cols-3 gap-2 pt-1 tnum"></div>
     </section>
 
     <!-- ================================================================= -->
@@ -187,25 +185,37 @@
     <!-- ================================================================= -->
     <section class="bg-white dark:bg-ex-card rounded-2xl p-4 border border-slate-200 dark:border-ex-border shadow-sm space-y-2.5">
       <div class="flex items-center justify-between">
-        <h2 class="text-xs font-extrabold uppercase tracking-wider text-slate-700 dark:text-ex-text flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-ex-gold"></span>
+        <h2 class="text-xs font-extrabold uppercase tracking-wider text-slate-700 dark:text-ex-text flex items-center gap-1.5">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-ex-gold" aria-hidden="true"></i>
           <span>วิธีใช้งานสำหรับมือใหม่ (3 ขั้นตอนจบ)</span>
         </h2>
-        <span class="text-[11px] font-bold text-ex-green tnum">READY TO EXECUTE</span>
+        <span class="inline-flex items-center gap-1 text-[10px] font-extrabold text-ex-green tnum">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5" aria-hidden="true"></i>
+          <span>READY</span>
+        </span>
       </div>
 
       <div class="grid grid-cols-3 gap-2 text-xs">
         <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-ex-elevated border border-slate-200 dark:border-ex-border flex flex-col justify-between">
-          <span class="text-[10px] font-extrabold text-amber-600 dark:text-ex-gold tnum">STEP 01</span>
-          <span class="font-bold text-slate-800 dark:text-ex-text mt-1 leading-snug">กดปุ่มสีเหลืองเพื่อสุ่มชุดเลข</span>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold text-amber-600 dark:text-ex-gold tnum">STEP 01</span>
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-ex-gold" aria-hidden="true"></i>
+          </div>
+          <span class="font-bold text-slate-800 dark:text-ex-text mt-1.5 leading-snug">กดปุ่มสีเหลืองเพื่อสุ่มชุดเลข</span>
         </div>
         <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-ex-elevated border border-slate-200 dark:border-ex-border flex flex-col justify-between">
-          <span class="text-[10px] font-extrabold text-amber-600 dark:text-ex-gold tnum">STEP 02</span>
-          <span class="font-bold text-slate-800 dark:text-ex-text mt-1 leading-snug">กดปุ่มคัดลอกโพยด้านล่างสุด</span>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold text-amber-600 dark:text-ex-gold tnum">STEP 02</span>
+            <i data-lucide="copy" class="w-3.5 h-3.5 text-ex-gold" aria-hidden="true"></i>
+          </div>
+          <span class="font-bold text-slate-800 dark:text-ex-text mt-1.5 leading-snug">กดปุ่มคัดลอกโพยด้านล่างสุด</span>
         </div>
         <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-ex-elevated border border-slate-200 dark:border-ex-border flex flex-col justify-between">
-          <span class="text-[10px] font-extrabold text-ex-green tnum">STEP 03</span>
-          <span class="font-bold text-slate-800 dark:text-ex-text mt-1 leading-snug">ส่งให้คนขาย/วางในเว็บได้เลย</span>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold text-ex-green tnum">STEP 03</span>
+            <i data-lucide="send" class="w-3.5 h-3.5 text-ex-green" aria-hidden="true"></i>
+          </div>
+          <span class="font-bold text-slate-800 dark:text-ex-text mt-1.5 leading-snug">ส่งให้คนขาย/วางในเว็บได้เลย</span>
         </div>
       </div>
     </section>
@@ -213,9 +223,7 @@
     <!-- ================================================================= -->
     <!-- GENERATED ORDER BOOK SLIP AREA (Updates instantly on Randomize)   -->
     <!-- ================================================================= -->
-    <div id="slipContainer" class="space-y-3">
-      <!-- Populated dynamically by JS -->
-    </div>
+    <div id="slipContainer" class="space-y-3"></div>
 
     <!-- ================================================================= -->
     <!-- ADVANCED PARAMETERS & BACKTEST SIMULATOR (COLLAPSIBLE TERMINAL)   -->
@@ -223,14 +231,10 @@
     <details class="group bg-white dark:bg-ex-card rounded-2xl border border-slate-200 dark:border-ex-border shadow-sm overflow-hidden">
       <summary class="cursor-pointer list-none p-4 flex items-center justify-between font-extrabold text-xs uppercase tracking-wider text-slate-700 dark:text-ex-text hover:bg-slate-50 dark:hover:bg-ex-elevated transition-colors">
         <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-ex-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-          </svg>
+          <i data-lucide="sliders-horizontal" class="w-4 h-4 text-ex-gold" aria-hidden="true"></i>
           <span>ตั้งค่าเลขเด่นเอง / จำลองตรวจผลรางวัล (Backtest Terminal)</span>
         </div>
-        <svg class="w-4 h-4 text-slate-400 dark:text-ex-muted group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
+        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 dark:text-ex-muted group-open:rotate-180 transition-transform" aria-hidden="true"></i>
       </summary>
 
       <div class="p-4 pt-0 border-t border-slate-200 dark:border-ex-border space-y-4">
@@ -246,9 +250,13 @@
         <!-- Quick Draw Simulator -->
         <div class="pt-3 border-t border-slate-200 dark:border-ex-border space-y-3 tnum">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-700 dark:text-ex-text">จำลองผลรางวัล (P&amp;L Backtester):</span>
-            <button id="randomDrawBtn" type="button" class="cursor-pointer px-3 py-1 rounded-lg text-[11px] font-bold bg-slate-100 dark:bg-ex-elevated text-slate-800 dark:text-ex-text border border-slate-300 dark:border-ex-border hover:border-ex-gold transition-colors">
-              สุ่มผลหวยออก
+            <span class="text-xs font-bold text-slate-700 dark:text-ex-text flex items-center gap-1.5">
+              <i data-lucide="flask-conical" class="w-3.5 h-3.5 text-ex-green" aria-hidden="true"></i>
+              <span>จำลองผลรางวัล (P&amp;L Backtester)</span>
+            </span>
+            <button id="randomDrawBtn" type="button" class="cursor-pointer inline-flex items-center gap-1 px-3 py-1 rounded-lg text-[11px] font-bold bg-slate-100 dark:bg-ex-elevated text-slate-800 dark:text-ex-text border border-slate-300 dark:border-ex-border hover:border-ex-gold transition-colors">
+              <i data-lucide="shuffle" class="w-3 h-3" aria-hidden="true"></i>
+              <span>สุ่มผลหวยออก</span>
             </button>
           </div>
           <div class="grid grid-cols-2 gap-2.5">
@@ -266,6 +274,16 @@
       </div>
     </details>
 
+    <!-- Terminal Footer with Simple Icons Brand Badges -->
+    <footer class="pt-2 pb-4 flex items-center justify-between text-[11px] text-slate-400 dark:text-ex-muted px-1">
+      <div class="flex items-center gap-2">
+        <img src="https://cdn.simpleicons.org/github/848E9C" alt="GitHub" class="w-3.5 h-3.5 opacity-80" width="14" height="14" />
+        <img src="https://cdn.simpleicons.org/vercel/848E9C" alt="Vercel" class="w-3.5 h-3.5 opacity-80" width="14" height="14" />
+        <span class="tnum">QUANT ENGINE v2.4</span>
+      </div>
+      <span class="tnum">PAYOUT 90x · EV OPTIMIZED</span>
+    </footer>
+
   </main>
 
   <!-- Fixed Bottom Exchange Execution Bar -->
@@ -281,9 +299,8 @@
       </div>
 
       <button id="copyAllSlipBtn" type="button" class="cursor-pointer min-h-[48px] px-5 rounded-xl bg-ex-green hover:opacity-95 text-ex-bg font-extrabold text-sm flex items-center gap-2 green-glow active:scale-[0.98] transition-all">
-        <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2" />
-        </svg>
+        <!-- Simple Icons LINE Logo + Copy Action -->
+        <img src="https://cdn.simpleicons.org/line/0B0E11" alt="" aria-hidden="true" class="w-4 h-4 shrink-0" width="16" height="16" />
         <span>คัดลอกโพยส่งคนขาย</span>
       </button>
     </div>
@@ -291,9 +308,7 @@
 
   <!-- Toast Notification -->
   <div id="toast" role="status" aria-live="polite" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2 px-4 py-2.5 rounded-xl bg-ex-gold text-ex-bg text-xs font-extrabold shadow-2xl border border-amber-300 whitespace-nowrap">
-    <svg class="w-4 h-4 text-ex-bg shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.8" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-    </svg>
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-ex-bg shrink-0" aria-hidden="true"></i>
     <span id="toastMsg">คัดลอกเรียบร้อยแล้ว</span>
   </div>
 
@@ -406,6 +421,12 @@
       };
     }
 
+    function refreshLucide() {
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
     function renderKeypad() {
       const mainKeypad = document.getElementById('mainKeypad');
       const [m1, m2] = getSortedMain();
@@ -452,7 +473,7 @@
       if (state.mode === 'simple') {
         document.getElementById('winRateBig').textContent = '61.56%';
         document.getElementById('winRateBadge').textContent = 'โอกาสถูกสูงสุดในงบ 1,000฿';
-        document.getElementById('costBadge').textContent = '988 THB';
+        document.getElementById('costBadge').innerHTML = '<i data-lucide="wallet" class="w-3.5 h-3.5 text-ex-gold" aria-hidden="true"></i><span>988 THB</span>';
         document.getElementById('bottomSummaryTitle').textContent = '38 เลข · ซื้อราคาเดียว (บน 13฿ + ล่าง 13฿)';
         document.getElementById('bottomBarTotal').textContent = '988';
 
@@ -476,8 +497,9 @@
             <div class="flex items-start justify-between gap-2 border-b border-slate-200 dark:border-ex-line pb-3">
               <div>
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-ex-gold text-ex-bg uppercase tnum">
-                    SINGLE-PRICE ORDER
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-extrabold bg-ex-gold text-ex-bg uppercase tnum">
+                    <i data-lucide="crosshair" class="w-3 h-3" aria-hidden="true"></i>
+                    <span>SINGLE-PRICE ORDER</span>
                   </span>
                   <span class="text-xs font-bold text-ex-green tnum">เด่น ${m1}-${m2} / คู่เสริม ${s1}${s2}</span>
                 </div>
@@ -488,8 +510,9 @@
                   ไม่ต้องแยกกอง · ออกตัวไหนในตารางนี้รับเงินสด 1,170 บาท (กำไรทุกตัว)
                 </p>
               </div>
-              <button type="button" id="copySimpleNumsBtn" class="cursor-pointer min-h-[38px] px-3 rounded-xl bg-slate-100 dark:bg-ex-elevated hover:border-ex-gold border border-slate-300 dark:border-ex-border text-slate-900 dark:text-ex-gold text-xs font-extrabold shrink-0 active:scale-95 transition-all">
-                ก๊อปเฉพาะตัวเลข
+              <button type="button" id="copySimpleNumsBtn" class="cursor-pointer min-h-[38px] px-3 rounded-xl bg-slate-100 dark:bg-ex-elevated hover:border-ex-gold border border-slate-300 dark:border-ex-border text-slate-900 dark:text-ex-gold text-xs font-extrabold shrink-0 active:scale-95 transition-all inline-flex items-center gap-1.5">
+                <i data-lucide="copy" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                <span>ก๊อปเลข</span>
               </button>
             </div>
 
@@ -505,7 +528,7 @@
 
             <!-- Ready-to-Send Command Box -->
             <div class="p-3 rounded-xl bg-slate-50 dark:bg-ex-bg border border-slate-200 dark:border-ex-border flex items-start gap-2.5 text-xs">
-              <span class="px-1.5 py-0.5 rounded bg-ex-green/15 text-ex-green font-extrabold text-[10px] tnum shrink-0 mt-0.5">TIP</span>
+              <i data-lucide="terminal" class="w-4 h-4 text-ex-green shrink-0 mt-0.5" aria-hidden="true"></i>
               <p class="text-slate-600 dark:text-ex-muted leading-relaxed">
                 เวลาซื้อให้บอกคนขายว่า: <strong class="text-slate-900 dark:text-ex-text">"ซื้อ 2 ตัวบน ตัวละ 13 บาท และ 2 ตัวล่าง ตัวละ 13 บาท ทั้งหมด 38 ตัวนี้ (รวม 988 บาท)"</strong>
               </p>
@@ -520,7 +543,7 @@
       } else {
         document.getElementById('winRateBig').textContent = '59.04%';
         document.getElementById('winRateBadge').textContent = 'โหมดแบ่ง 3 กอง ลุ้นกำไรก้อนใหญ่';
-        document.getElementById('costBadge').textContent = '1,000 THB';
+        document.getElementById('costBadge').innerHTML = '<i data-lucide="wallet" class="w-3.5 h-3.5 text-ex-gold" aria-hidden="true"></i><span>1,000 THB</span>';
         document.getElementById('bottomSummaryTitle').textContent = 'ครบ 3 กอง (36 เลข บน–ล่าง)';
         document.getElementById('bottomBarTotal').textContent = '1,000';
 
@@ -545,15 +568,19 @@
             <div class="flex items-center justify-between gap-2">
               <div>
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-ex-red text-white tnum">TIER 1 · HIGH CONVICTION</span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-extrabold bg-ex-red text-white tnum">
+                    <i data-lucide="flame" class="w-3 h-3" aria-hidden="true"></i>
+                    <span>TIER 1 · HIGH CONVICTION</span>
+                  </span>
                   <span class="text-xs font-extrabold text-ex-red tnum">2 ตัวเอก</span>
                 </div>
                 <h3 class="text-sm font-extrabold text-slate-900 dark:text-ex-text mt-1">
                   ซื้อ บนตัวละ <span class="text-ex-red tnum">23฿</span> + ล่างตัวละ <span class="text-ex-red tnum">23฿</span> <span class="text-xs font-normal text-slate-400 dark:text-ex-muted tnum">(รวม 92฿)</span>
                 </h3>
               </div>
-              <button type="button" data-copy-g="1" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-ex-red/15 border border-ex-red/40 text-xs font-extrabold text-ex-red active:scale-95 transition-transform">
-                คัดลอก 2 ตัว
+              <button type="button" data-copy-g="1" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-ex-red/15 border border-ex-red/40 text-xs font-extrabold text-ex-red active:scale-95 transition-transform inline-flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                <span>คัดลอก</span>
               </button>
             </div>
             <div class="flex flex-wrap gap-2 tnum">
@@ -571,15 +598,19 @@
             <div class="flex items-center justify-between gap-2">
               <div>
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-ex-gold text-ex-bg tnum">TIER 2 · CORE PROFIT</span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-extrabold bg-ex-gold text-ex-bg tnum">
+                    <i data-lucide="trending-up" class="w-3 h-3" aria-hidden="true"></i>
+                    <span>TIER 2 · CORE PROFIT</span>
+                  </span>
                   <span class="text-xs font-extrabold text-amber-600 dark:text-ex-gold tnum">8 ตัวเน้น</span>
                 </div>
                 <h3 class="text-sm font-extrabold text-slate-900 dark:text-ex-text mt-1">
                   ซื้อ บนตัวละ <span class="text-amber-600 dark:text-ex-gold tnum">21฿</span> + ล่างตัวละ <span class="text-amber-600 dark:text-ex-gold tnum">21฿</span> <span class="text-xs font-normal text-slate-400 dark:text-ex-muted tnum">(รวม 336฿)</span>
                 </h3>
               </div>
-              <button type="button" data-copy-g="2" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-ex-gold/15 border border-ex-gold/40 text-xs font-extrabold text-amber-600 dark:text-ex-gold active:scale-95 transition-transform">
-                คัดลอก 8 ตัว
+              <button type="button" data-copy-g="2" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-ex-gold/15 border border-ex-gold/40 text-xs font-extrabold text-amber-600 dark:text-ex-gold active:scale-95 transition-transform inline-flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                <span>คัดลอก</span>
               </button>
             </div>
             <div class="grid grid-cols-4 sm:grid-cols-8 gap-2 tnum">
@@ -597,15 +628,19 @@
             <div class="flex items-center justify-between gap-2">
               <div>
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-700 text-white tnum">TIER 3 · HEDGE SHIELD</span>
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-700 text-white tnum">
+                    <i data-lucide="shield" class="w-3 h-3" aria-hidden="true"></i>
+                    <span>TIER 3 · HEDGE SHIELD</span>
+                  </span>
                   <span class="text-xs font-bold text-slate-500 dark:text-ex-muted tnum">26 ตัวกันทุน</span>
                 </div>
                 <h3 class="text-sm font-extrabold text-slate-900 dark:text-ex-text mt-1">
                   ซื้อ บนตัวละ <span class="text-ex-green tnum">11฿</span> + ล่างตัวละ <span class="text-ex-green tnum">11฿</span> <span class="text-xs font-normal text-slate-400 dark:text-ex-muted tnum">(รวม 572฿)</span>
                 </h3>
               </div>
-              <button type="button" data-copy-g="3" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-slate-100 dark:bg-ex-elevated border border-slate-300 dark:border-ex-border text-xs font-extrabold text-slate-800 dark:text-ex-text active:scale-95 transition-transform">
-                คัดลอก 26 ตัว
+              <button type="button" data-copy-g="3" class="copy-g-btn cursor-pointer min-h-[38px] px-3 rounded-xl bg-slate-100 dark:bg-ex-elevated border border-slate-300 dark:border-ex-border text-xs font-extrabold text-slate-800 dark:text-ex-text active:scale-95 transition-transform inline-flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                <span>คัดลอก</span>
               </button>
             </div>
             <div class="grid grid-cols-6 sm:grid-cols-9 gap-1.5 tnum">
@@ -628,6 +663,7 @@
       }
 
       renderSimulator(portfolio);
+      refreshLucide();
     }
 
     function renderSimulator(portfolio) {
@@ -679,8 +715,10 @@
 
     function triggerSmartRandom() {
       const dice = document.getElementById('diceIcon');
-      dice.classList.add('rotate-180');
-      setTimeout(() => dice.classList.remove('rotate-180'), 300);
+      if (dice) {
+        dice.classList.add('rotate-180');
+        setTimeout(() => dice.classList.remove('rotate-180'), 300);
+      }
 
       const low = [0, 1, 2, 3, 4];
       const prevMainKey = getSortedMain().join('-');
